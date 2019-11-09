@@ -20,6 +20,8 @@
 #define LEVELTEMPLATE_H
 #include<iostream>
 #include<string>
+#include<vector>
+#include<utility>
 
 struct character
 {
@@ -41,7 +43,9 @@ struct enemy
 {
 	int HP;
 	std::string name;
-	//moves (not really sure how to implement yet)
+	//moves has a list of moves along with their damage values
+	//use rand through the list of moves to determine what the enemy does
+	std::vector<std::pair<std::string, int>> moves;
 	int money;
 	int exp;
 };
