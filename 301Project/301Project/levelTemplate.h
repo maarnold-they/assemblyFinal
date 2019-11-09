@@ -29,6 +29,20 @@ struct character
 	int HP = 100;
 };
 
+//notes on inventory:
+//first 32 bits be for keys
+//next 16 bits for weapons (1 on person at a time)
+//final 16 bits for utility purposes (like a candlestick)
+
+struct enemy
+{
+	int HP;
+	std::string name;
+	//moves (not really sure how to implement yet)
+	int money;
+	int exp;
+};
+
 void lvl0(character& mainChar);
 
 #endif
