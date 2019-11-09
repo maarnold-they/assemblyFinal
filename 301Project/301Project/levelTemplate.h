@@ -33,6 +33,9 @@ struct character
 //first 32 bits be for keys
 //next 16 bits for weapons (1 on person at a time)
 //final 16 bits for utility purposes (like a candlestick)
+//no weapons = 0xFFFF0000FFFFFFFF
+//weapon = 0x000100000000
+//inventory = (inventory & no weapons) | weapon
 
 struct enemy
 {
