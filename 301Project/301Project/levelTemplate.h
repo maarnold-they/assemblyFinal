@@ -28,12 +28,14 @@ struct character
 {
 	std::string name;
 	int aggression = 0;
-	unsigned long long inventory = 0; //(however we want to make that)
+	unsigned long long inventory = 0; //needed it to be 64 bits of unsigned.
 	int HP = 100;
 };
 
 /*
-	
+	weapon, utility, and key are all integers so that you only have 
+	to know them relative to their own parts of the inventory and 
+	then it's not such a ridiculously complicated inventory.
 */
 void newWeapon(int weapon, character& protag);
 void newUtility(int utility, character& protag);
