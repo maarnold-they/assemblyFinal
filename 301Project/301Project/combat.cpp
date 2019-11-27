@@ -20,7 +20,6 @@ TEST DUMMIES (just slap them into main):
 	enemy.name = "joey";
 	enemy.HP = 20;
 	fight(mainChar, enemy);
-
 */
 
 void printOptions(vector <pair<string, string>> options) {
@@ -142,13 +141,15 @@ void fightHeader(character enemy) {
 	}
 }
 
+
 /*
 main function for combat. uses while loop for each turn
 */
 void fight(character& protag, character& enemy) {
 	bool enemyGuard=false;
 	bool playerGuard=false;
-	vector <pair<string, string>> options = setOptions();		
+	vector <pair<string, string>> options = setOptions();	
+	newWeapon(5, protag);
 	int weapon = 5; //TEMP PLACEHOLDER, REPLACE WITH CHARACTER WEAPON DAMAGE LATER
 	while (protag.HP > 0 && enemy.HP > 0) {
 		fightHeader(enemy);
