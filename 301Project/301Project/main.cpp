@@ -9,7 +9,7 @@ int main()
 	//Starting stats
 	character mainChar;
 	mainChar.aggression = 0;
-	mainChar.HP = 10;
+	mainChar.HP = 40;
 	//String that is the output text when the player makes a typo
 	std::string typo = "Hey, are you sure you meant to type that? I don't think you did.";
 
@@ -29,5 +29,11 @@ int main()
 		}
 	}
 
-	//Insert Lvl1 loop here!!!
+	if (move == "lvl1")
+		move = lvl1Start(mainChar, typo);
+
+	while (move != "lvl2")
+	{
+		
+	}
 }

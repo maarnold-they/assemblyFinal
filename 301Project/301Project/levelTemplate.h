@@ -22,6 +22,7 @@
 #include<string>
 #include<vector>
 #include<utility>
+#include<vector>
 
 
 struct character
@@ -52,7 +53,7 @@ bool checkKey(int key, character& protag);
 //unsigned long long noWeapons = 0xFFff0000FFffFFff; //removes all weapons when put through & operation.
 
 
-struct enemy
+struct opponent
 {
 	int HP;
 	std::string name;
@@ -63,10 +64,24 @@ struct enemy
 	int exp;
 };
 
+void fight(character& protag, opponent& enemy);
+
+void printOptions(std::vector <std::pair<std::string, std::string>> options);
+
+void playerMove(std::vector <std::pair<std::string, std::string>> options, int& weapon, std::string input,
+	character& protag, opponent& enemy, bool& enemyGuard, bool& playerGuard);
+
+void enemyMove(std::vector <std::pair<std::string, std::string>> options,
+	character& protag, opponent& enemy, bool& enemyGuard, bool& playerGuard);
+
+void fightHeader(opponent enemy);
+
 std::string lvl0Start(character& mainChar, std::string & typo);
 
 std::string lvl0Hall(character& mainChar, std::string & typo);
 
 std::string lvl0Lair(character& mainChar, std::string& typo);
+
+std::string lvl1Start(character& mainChar, std::string& typo);
 
 #endif

@@ -8,8 +8,6 @@ using std::cin;
 using std::endl;
 using std::string;
 
-
-
 string lvl0Start(character& mainChar, string & typo)
 {
 		cout << "It's not like I forgot or anything, but, uhh..." << endl;
@@ -246,6 +244,14 @@ string lvl0Lair(character& mainChar, string& typo)
 	cout << "The gang leader pulls out a pristine dagger, and you" << endl;
 	cout << "prepare for battle!" << endl << endl;
 	//INSERT BATTLE HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+	opponent gangLeader;
+	gangLeader.HP = 20;
+	gangLeader.name = "Gang Leader";
+	gangLeader.money = 5;
+	gangLeader.exp = 10;
+
+	fight(mainChar, gangLeader);
 	cout << "You manage to defeat the gang leader, only to realize" << endl;
 	cout << "that there's, like, 20 other gang members in this room alone." << endl;
 	cout << "You look to your left and notice an upward staircase." << endl;
@@ -277,5 +283,3 @@ string lvl0Lair(character& mainChar, string& typo)
 		}
 	}
 }
-
-//Create a function that automatically prints HUD text, like current location and Max HP/Current HP

@@ -27,6 +27,9 @@
     <ClCompile Include="combat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="level1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="levelTemplate.h">
