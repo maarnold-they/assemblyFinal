@@ -50,6 +50,10 @@ struct enemy
 	int exp;
 };
 
-void lvl0(character& mainChar);
+std::string lvl0Start(character& mainChar, std::string & typo);
+
+std::string lvl0Hall(character& mainChar, std::string & typo);
+
+std::string lvl0Lair(character& mainChar, std::string& typo);
 
 #endif
