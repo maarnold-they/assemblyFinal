@@ -1,5 +1,5 @@
-//level0.cpp
-//contains level 0's code
+//level1.cpp
+//contains level 1's code
 //William, Millard, Harrison
 
 #include "levelTemplate.h"

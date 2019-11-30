@@ -8,7 +8,7 @@ using std::string;
 using std::vector;
 using std::pair;
 
-/*   
+/*
 PUT IN HEADER FILE:
 	void fight(character& protag, opponent& enemy);
 
@@ -131,7 +131,7 @@ void fightHeader(opponent enemy) {
 	if (enemy.HP > hpChecker) {
 		cout << enemy.name << " wants to fight!\nWhat will you do?\n";
 	}
-	else if (hpChecker/2 < enemy.HP <= hpChecker){
+	else if (hpChecker / 2 < enemy.HP <= hpChecker) {
 		cout << enemy.name << " looks tired!\nWhat will you do?\n";
 
 	}
@@ -156,9 +156,9 @@ int getDamage(character protag, int weapon) {
 main function for combat. uses while loop for each turn
 */
 void fight(character& protag, opponent& enemy) {
-	bool enemyGuard=false;
-	bool playerGuard=false;
-	vector <pair<string, string>> options = setOptions();	
+	bool enemyGuard = false;
+	bool playerGuard = false;
+	vector <pair<string, string>> options = setOptions();
 	//newWeapon(5, protag);
 	int weapon = 5;
 	weapon = getDamage(protag, weapon);
@@ -169,7 +169,7 @@ void fight(character& protag, opponent& enemy) {
 		string input;
 		getline(cin, input);
 		playerMove(options, weapon, input, protag, enemy, enemyGuard, playerGuard);
-		
+
 		//checks enemies health in case they died before while loop checks HP
 		if (enemy.HP > 0) {
 			enemyMove(options, protag, enemy, enemyGuard, playerGuard);
