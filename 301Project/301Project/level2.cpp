@@ -23,6 +23,7 @@ lvl2Start(character& mainChar, std::string& typo) {
 		if (checkUtility == 0xFFff) {
 			cout << "(3) Eat food you found" << endl;
 			cout << "The food fills you up and you feel refreshed! HP is restored."
+				mainChar.HP = maxHP;
 		}
 		getline(cin, choice);
 		cout << endl;
