@@ -20,6 +20,10 @@ lvl2Start(character& mainChar, std::string& typo) {
 	while (true) {
 		cout << "What do you do?" << endl;
 		cout << "(1) Wait for them to come and fight one               (2) Push on and gain more distance" << endl;
+		if (checkUtility == 0xFFff) {
+			cout << "(3) Eat food you found" << endl;
+			cout << "The food fills you up and you feel refreshed! HP is restored."
+		}
 		getline(cin, choice);
 		cout << endl;
 
@@ -35,7 +39,7 @@ lvl2Start(character& mainChar, std::string& typo) {
 			fight(mainChar, gangLeader);
 			cout << "You manage to defeat the thug, only to realize" << endl;
 			cout << "that there's, like, 15 other gang members making their way towards you." << endl;
-			cout << "You look to your left and notice an upward staircase." << endl;
+			cout << "You look to your left and notice a bathroom and run in." << endl;
 			break;
 		}
 	
