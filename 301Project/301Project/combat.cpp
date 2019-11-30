@@ -141,6 +141,14 @@ void fightHeader(opponent enemy) {
 	}
 }
 
+int getDamage(character protag, int weapon) {
+	long weaponDamage = (protag.inventory << 32) && 0xFFFF;
+	int temp;
+	for (i = 0; i <= weaponDamage; i += 15) {
+		temp++;
+	}
+	return weapon + temp;
+}
 
 /*
 main function for combat. uses while loop for each turn
@@ -149,8 +157,9 @@ void fight(character& protag, opponent& enemy) {
 	bool enemyGuard=false;
 	bool playerGuard=false;
 	vector <pair<string, string>> options = setOptions();	
-	newWeapon(5, protag);
-	int weapon = 5; //TEMP PLACEHOLDER, REPLACE WITH CHARACTER WEAPON DAMAGE LATER
+	//newWeapon(5, protag);
+	int weapon = 5;
+	weapon = getDamage(protag, weapon);
 	while (protag.HP > 0 && enemy.HP > 0) {
 		fightHeader(enemy);
 		//prints full combat options for player
