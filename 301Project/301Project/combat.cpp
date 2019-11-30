@@ -143,9 +143,11 @@ void fightHeader(opponent enemy) {
 
 int getDamage(character protag, int weapon) {
 	long weaponDamage = (protag.inventory << 32) && 0xFFFF;
-	int temp;
-	for (int i = 0; i <= weaponDamage; i += 15) {
-		temp++;
+	int temp = 0;
+	if (weaponDamage != 0) {
+		for (int i = 0; i <= weaponDamage; i += 15) {
+			temp++;
+		}
 	}
 	return weapon + temp;
 }

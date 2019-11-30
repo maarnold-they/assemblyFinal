@@ -32,6 +32,8 @@ struct character
 	unsigned long long inventory = 0; //needed it to be 64 bits of unsigned.
 	int maxHP = 40;
 	int HP = maxHP;
+	int exp = 0;
+	int level = 1;
 };
 
 /*

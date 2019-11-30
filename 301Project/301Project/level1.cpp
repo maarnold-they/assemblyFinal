@@ -11,6 +11,39 @@ using std::string;
 string lvl1Start(character& mainChar, string & notableChoice)
 {
 	string choice;
+
+	//Second visit, when you only have one key
+	int key = 0x0001;
+	int key2 = 0x0010;
+	if (checkKey(key, mainChar) || checkKey(key2, mainChar))
+	{
+		cout << "You take your key and unlock the locked door, only to" << endl;
+		cout << "find that there is ANOTHER locked door which takes a completely" << endl;
+		cout << "different key right behind it. WOW." << endl;
+
+		if (checkKey(key, mainChar))
+		{
+			cout << "You decide to head to the room to the right." << endl;
+			return "wardrobe";
+		}
+
+		if (checkKey(key2, mainChar))
+		{
+			cout << "You decide to head to the room to the left." << endl;
+			return "kitchen";
+		}
+	}
+
+	//Third Visit, once you have both keys
+	int bothKeys = 0x0011;
+	if (checkKey(bothKeys, mainChar))
+	{
+		cout << "You unlock the second locked door. Wow, that was stupid, but" << endl;
+		cout << "but you've made it through now. You enter the next room." << endl;
+		return "whatever next room is called";
+	}
+	
+	//First Visit, when you have no keys
 	cout << "You reach the top of the stairs and find a door." << endl;
 	cout << "You open the door and close it behind you. You realize" << endl;
 	cout << "you're going to need a way to put some distance on the gangsters." << endl;
@@ -112,7 +145,6 @@ string lvl1Kitchen(character& mainChar, string& notableChoice)
 				cout << "don't feel like eating cheese by the block, so you stuff it" << endl;
 				cout << "into your black hole of a pocket." << endl;
 				cout << "Acquired BLOCK OF CHEESE!" << endl;
-				//USE THE INVENTORY FOR THIS, LIKELY IT'LL TAKE UP A KEY SLOT
 				blockCheese = true;
 			}
 			else
@@ -132,7 +164,6 @@ string lvl1Kitchen(character& mainChar, string& notableChoice)
 				cout << "when all of a sudden you open the tenth drawer and find a cheese" << endl;
 				cout << "grater. This might be useful." << endl;
 				cout << "Acquired CHEESE GRATER!" << endl;
-				//USE THE INVENTORY FOR THIS, LIKELY IT'LL TAKE UP A KEY SLOT
 				cheeseGrater = true;
 			}
 			else
@@ -154,7 +185,8 @@ string lvl1Kitchen(character& mainChar, string& notableChoice)
 			cout << "content. Amidst all of the shredded cheese falling into your mouth is a" << endl;
 			cout << "solid metal object! You choke for a bit before hacking out a key onto the floor!" << endl;
 			cout << "Acquired KEY!" << endl;
-			//ADD KEY INTO INVENTORY!!!!!!!!!!!!!
+			int key = 0x0001;
+			newKey(key, mainChar);
 			break;
 		}
 	}
@@ -187,6 +219,8 @@ string lvl1Wardrobe(character& mainChar, string& notableChoice)
 {
 	string choice;
 	cout << "You find yourself in a walk-in closet of sorts." << endl;
-
-	return "dummy";
+	cout << "You instantly get a key. Convenient." << endl;
+	int key2 = 0x0010;
+	newKey(key2, mainChar);
+	return "lvl1";
 }

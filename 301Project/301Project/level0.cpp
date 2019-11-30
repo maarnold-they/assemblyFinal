@@ -75,9 +75,8 @@ string lvl0Start(character& mainChar, string & notableChoice)
 				{
 					cout << "You shove the sword into your pocket. What? It's not like" << endl;
 					cout << "the old man's gonna give you a sheath for free." << endl << endl;
-					//PUT THE SWORD INTO THE PLAYER'S INVENTORY!!!!!!!!!!!!!!!!!!!!!!!!!!!
 					int twigSword = 0x000F;
-					newWeapon(twigSword, mainChar);
+					newWeapon(twigSword, mainChar); //twig sword enters player's inventory
 					break;
 				}
 				else if (choice == "2")
@@ -147,6 +146,8 @@ string lvl0Hall(character & mainChar, string & notableChoice)
 		getline(cin, choice);
 		cout << endl;
 
+		int cheese = 0x0001;
+
 		if (choice == "1")
 		{
 			if (!first)
@@ -171,15 +172,16 @@ string lvl0Hall(character & mainChar, string & notableChoice)
 						cout << "You grab that cheese so fast the rat can't even react." << endl;
 						cout << "The rat then looks at you sadly and you hiss at him, scaring him off." << endl;
 						cout << "You acquire cheese!" << endl << endl;
-						//ADD CHEESE INTO INVENTORY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-						mainChar.aggression++;
+						
+						newUtility(cheese, mainChar); //add cheese into player's inventory
+						mainChar.aggression++; //increase player's aggression level by 1
 						break;
 					}
 					else if (choice == "2")
 					{
 						cout << "You decide that you don't need cheese. The rat can keep it his" << endl;
 						cout << "'calcium' and his 'strong bones'." << endl;
-						choice = "dummy"; //keep choice from activating next dialogue
+						choice = "1"; //keep choice from activating next dialogue
 						break;
 					}
 					else
@@ -190,7 +192,7 @@ string lvl0Hall(character & mainChar, string & notableChoice)
 			}
 		}
 
-		if (choice == "2")
+		else if (choice == "2")
 		{
 			cout << "You ask the person in the very back of the line about the point" << endl;
 			cout << "of said line. While he is initially surprised by the fact you" << endl;
@@ -201,6 +203,10 @@ string lvl0Hall(character & mainChar, string & notableChoice)
 			cout << "in charge of the local town, and that it was that time of the week again: " << endl;
 			cout << "time to pay them taxes." << endl << endl;
 			break;
+		}
+		else
+		{
+			typo();
 		}
 	}
 
