@@ -8,7 +8,12 @@ using std::cin;
 using std::endl;
 using std::string;
 
-string lvl0Start(character& mainChar, string & typo)
+void typo()
+{
+	std::cout << "Hey, are you sure you meant to type that? I don't think you did." << std::endl;
+}
+
+string lvl0Start(character& mainChar, string & notableChoice)
 {
 		cout << "It's not like I forgot or anything, but, uhh..." << endl;
 		cout << "What was your name again?" << endl;
@@ -40,7 +45,7 @@ string lvl0Start(character& mainChar, string & typo)
 			}
 			else
 			{
-				cout << typo << endl << endl;
+				typo();
 			}
 		}
 		cout << "In the middle of the old man's incomprehensible babbling, you see a glimmer" << endl;
@@ -68,9 +73,11 @@ string lvl0Start(character& mainChar, string & typo)
 
 				if (choice == "1")
 				{
-					cout << "You feel a strong desire for the creators of this game to implement" << endl;
-					cout << "the inventory system already." << endl << endl;
+					cout << "You shove the sword into your pocket. What? It's not like" << endl;
+					cout << "the old man's gonna give you a sheath for free." << endl << endl;
 					//PUT THE SWORD INTO THE PLAYER'S INVENTORY!!!!!!!!!!!!!!!!!!!!!!!!!!!
+					int twigSword = 0x000F;
+					newWeapon(twigSword, mainChar);
 					break;
 				}
 				else if (choice == "2")
@@ -81,7 +88,7 @@ string lvl0Start(character& mainChar, string & typo)
 				}
 				else
 				{
-					cout << typo << endl << endl;
+					typo();
 				}
 			}
 			break;
@@ -93,7 +100,7 @@ string lvl0Start(character& mainChar, string & typo)
 		}
 		else
 		{
-			cout << typo << endl << endl;
+			typo();
 		}
 	}
 
@@ -116,12 +123,12 @@ string lvl0Start(character& mainChar, string & typo)
 		}
 		else
 		{
-			cout << typo << endl << endl;
+			typo();
 		}
 	}
 }
 
-string lvl0Hall(character & mainChar, string & typo)
+string lvl0Hall(character & mainChar, string & notableChoice)
 {
 	string choice;
 	bool first = true;
@@ -177,7 +184,7 @@ string lvl0Hall(character & mainChar, string & typo)
 					}
 					else
 					{
-						cout << typo << endl << endl;
+						typo();
 					}
 				}
 			}
@@ -226,14 +233,14 @@ string lvl0Hall(character & mainChar, string & typo)
 		}
 		else
 		{
-			cout << typo << endl << endl;
+			typo();
 		}
 	}
 
 	return "Gangster's Lair";
 }
 
-string lvl0Lair(character& mainChar, string& typo)
+string lvl0Lair(character& mainChar, string & notableChoice)
 {
 	string choice;
 	cout << "After pushing and shoving dozens upon dozens of people," << endl;
@@ -243,7 +250,6 @@ string lvl0Lair(character& mainChar, string& typo)
 	cout << "It's not a friendly glint." << endl << endl;
 	cout << "The gang leader pulls out a pristine dagger, and you" << endl;
 	cout << "prepare for battle!" << endl << endl;
-	//INSERT BATTLE HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 	opponent gangLeader;
 	gangLeader.HP = 20;
@@ -279,7 +285,7 @@ string lvl0Lair(character& mainChar, string& typo)
 		}
 		else
 		{
-			cout << typo << endl << endl;
+			typo();
 		}
 	}
 }

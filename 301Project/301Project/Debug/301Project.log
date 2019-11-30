@@ -1,2 +1,10 @@
-﻿  level0.cpp
-  301Project.vcxproj -> C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\Debug\301Project.exe
+﻿  combat.cpp
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(26,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(134,46): warning C4804:  '<=': unsafe use of type 'bool' in operation
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(147,7): error C2065:  'i': undeclared identifier
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(147,14): error C2065:  'i': undeclared identifier
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(147,33): error C2065:  'i': undeclared identifier
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(186,6): error C2039:  'exp': is not a member of 'character'
+  level0.cpp
+  Generating Code...
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\levelTemplate.h(28): message :  see declaration of 'character'

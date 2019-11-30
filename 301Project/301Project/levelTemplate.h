@@ -30,7 +30,8 @@ struct character
 	std::string name;
 	int aggression = 0;
 	unsigned long long inventory = 0; //needed it to be 64 bits of unsigned.
-	int HP = 100;
+	int maxHP = 40;
+	int HP = maxHP;
 };
 
 /*
@@ -76,12 +77,19 @@ void enemyMove(std::vector <std::pair<std::string, std::string>> options,
 
 void fightHeader(opponent enemy);
 
-std::string lvl0Start(character& mainChar, std::string & typo);
+void typo();
 
-std::string lvl0Hall(character& mainChar, std::string & typo);
+std::string lvl0Start(character& mainChar, std::string & notableChoice);
 
-std::string lvl0Lair(character& mainChar, std::string& typo);
+std::string lvl0Hall(character& mainChar, std::string & notableChoice);
 
-std::string lvl1Start(character& mainChar, std::string& typo);
+std::string lvl0Lair(character& mainChar, std::string & notableChoice);
+
+std::string lvl1Start(character& mainChar, std::string & notableChoice);
+
+std::string lvl1Kitchen(character& mainChar, std::string& notableChoice);
+
+std::string lvl1Wardrobe(character& mainChar, std::string& notableChoice);
+
 
 #endif
