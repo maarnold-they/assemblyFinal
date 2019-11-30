@@ -13,17 +13,15 @@ cout << "" << endl;
 
 */
 
-lvl2Start(character& mainChar, std::string& typo) {
+string lvl2Start(character& mainChar, void typo()) {
 	cout << "you go through the door and find yourself in a fancy looking apartment." << endl;
 	cout << "You hear the gang members shouting growing closer."<< endl;
 	string choice;
 	while (true) {
 		cout << "What do you do?" << endl;
 		cout << "(1) Wait for them to come and fight one               (2) Push on and gain more distance" << endl;
-		if (checkUtility == 0xFFff) {
+		if (checkUtility(mainChar.inventory >> 48, mainChar)) {
 			cout << "(3) Eat food you found" << endl;
-			cout << "The food fills you up and you feel refreshed! HP is restored."
-				mainChar.HP = maxHP;
 		}
 		getline(cin, choice);
 		cout << endl;
@@ -37,11 +35,17 @@ lvl2Start(character& mainChar, std::string& typo) {
 			thug.exp = 10;
 			cout << "The gang members shouting grows louder and you see one " << endl;
 			cout << "turn around the corner and charge you." << endl;
-			fight(mainChar, gangLeader);
+			fight(mainChar, thug);
 			cout << "You manage to defeat the thug, only to realize" << endl;
 			cout << "that there's, like, 15 other gang members making their way towards you." << endl;
 			cout << "You look to your left and notice a bathroom and run in." << endl;
 			break;
+		}
+		if (choice == "3") {
+			cout << "The food fills you up and you feel refreshed! HP is restored.";
+			mainChar.HP = mainChar.maxHP;
+			mainChar.inventory >> 48 && 0;
+
 		}
 	
 	}
