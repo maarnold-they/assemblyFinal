@@ -127,6 +127,7 @@
     <ClCompile Include="inventory.cpp" />
     <ClCompile Include="level0.cpp" />
     <ClCompile Include="level1.cpp" />
+    <ClCompile Include="level2.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
