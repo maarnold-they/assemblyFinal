@@ -182,5 +182,6 @@ void fight(character& protag, opponent& enemy) {
 
 	else {
 		cout << "\nthe bad guy died yay. \n";
+		//protag.
 	}
 }
