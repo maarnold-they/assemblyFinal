@@ -93,5 +93,10 @@ std::string lvl1Kitchen(character& mainChar, std::string& notableChoice);
 
 std::string lvl1Wardrobe(character& mainChar, std::string& notableChoice);
 
+std::string lvl1Staircase(character& mainChar, std::string& notableChoice);
+
+//INSERT LVL 2 FUNCTION PROTOTYPES HERE!!!!!!!!!
+
+std::string lvl3Start(character& mainChar, std::string& notableChoice);
 
 #endif

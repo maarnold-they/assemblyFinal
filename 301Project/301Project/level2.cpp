@@ -45,8 +45,7 @@ string lvl2Start(character& mainChar, void typo()) {
 			cout << "The food fills you up and you feel refreshed! HP is restored.";
 			mainChar.HP = mainChar.maxHP;
 			mainChar.inventory >> 48 && 0;
-
 		}
-	
+		return "dummy";
 	}
 }

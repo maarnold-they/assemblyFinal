@@ -24,11 +24,9 @@ int main()
 		if (move == "game over")
 		{
 			std::cout << "GAME OVER" << std::endl;
-			break;
+			exit;
 		}
 	}
-
-	
 
 	while (move != "lvl2")
 	{
@@ -41,10 +39,21 @@ int main()
 		if (move == "wardrobe")
 			move = lvl1Wardrobe(mainChar, notableChoice);
 
+		if (move == "staircase")
+			move = lvl1Staircase(mainChar, notableChoice);
+
 		if (move == "game over")
 		{
 			std::cout << "GAME OVER" << std::endl;
-			break;
+			exit;
 		}
+	}
+
+	//INSERT LEVEL 2 LOOP HERE!!!!!!!!!!!!!!!!!!!!!!!!
+
+	while (move != "end")
+	{
+		if (move == "lvl3")
+			move = lvl3Start(mainChar, notableChoice);
 	}
 }

@@ -183,7 +183,7 @@ void fight(character& protag, opponent& enemy) {
 	}
 
 	else {
-		cout << "\nthe bad guy died yay. \n";
+		cout << "\nthe bad guy died yay. \n\n";
 		//protag.exp += enemy.exp;
 		if (protag.exp >= 20) {
 			cout << "You leveled up! Max HP increased by 5.\n";

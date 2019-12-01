@@ -95,6 +95,7 @@ string lvl0Start(character& mainChar, string & notableChoice)
 		else if (choice == "2")
 		{
 			cout << "You look at the old man in disgust and then walk away." << endl << endl;
+			mainChar.aggression++;
 			return "hall";
 		}
 		else
