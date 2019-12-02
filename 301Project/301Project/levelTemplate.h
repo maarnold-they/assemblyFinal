@@ -99,4 +99,6 @@ std::string lvl1Staircase(character& mainChar, std::string& notableChoice);
 
 std::string lvl3Start(character& mainChar, std::string& notableChoice);
 
+std::string lvl3Restroom(character& mainChar, std::string& notableChoice);
+
 #endif

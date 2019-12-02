@@ -55,5 +55,8 @@ int main()
 	{
 		if (move == "lvl3")
 			move = lvl3Start(mainChar, notableChoice);
+
+		if(move == "restroom")
+			move = lvl3Restroom(mainChar, notableChoice);
 	}
 }
