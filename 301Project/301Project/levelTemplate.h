@@ -96,9 +96,12 @@ std::string lvl1Wardrobe(character& mainChar, std::string& notableChoice);
 std::string lvl1Staircase(character& mainChar, std::string& notableChoice);
 
 //INSERT LVL 2 FUNCTION PROTOTYPES HERE!!!!!!!!!
+std::string lvl2Start(character& mainChar, std::string& notableChoice);
+
+std::string lvl2Bathroom(character& mainChar, std::string& notableChoice);
 
 std::string lvl3Start(character& mainChar, std::string& notableChoice);
 
-std::string lvl3Restroom(character& mainChar, std::string& notableChoice);
+std::string lvl3Breakroom(character& mainChar, std::string& notableChoice);
 
 #endif

@@ -53,7 +53,7 @@ string lvl1Start(character& mainChar, string & notableChoice)
 		cout << "(1) Throw bookcase in front of door       (2) Lock door" << endl;
 		cout << "(3) Keep door unlocked                    (4) Throw chair in front of door" << endl;
 		getline(cin, choice);
-		cout << endl;
+		system("CLS");
 		
 		if (choice == "1")
 		{
@@ -102,7 +102,7 @@ string lvl1Start(character& mainChar, string & notableChoice)
 		cout << "Where do you go?" << endl;
 		cout << "(1) Left        (2) Right" << endl;
 		getline(cin, choice);
-		cout << endl;
+		system("CLS");
 
 		if (choice == "1")
 		{
@@ -135,7 +135,7 @@ string lvl1Kitchen(character& mainChar, string& notableChoice)
 	{
 		cout << "(1) Investigate the fridge             (2) Investigate the drawers" << endl;
 		getline(cin, choice);
-		cout << endl;
+		system("CLS");
 
 		if (choice == "1")
 		{
@@ -200,7 +200,7 @@ string lvl1Kitchen(character& mainChar, string& notableChoice)
 	{
 		cout << "(1) Stay, just 'cause               (2) Leave the kitchen" << endl;
 		getline(cin, choice);
-		cout << endl;
+		system("CLS");
 
 		if (choice == "1")
 		{
@@ -232,7 +232,7 @@ string lvl1Wardrobe(character& mainChar, string& notableChoice)
 		cout << "What do you do?" << endl;
 		cout << "(1) Look at the ceiling        (2) Rummage through pockets" << endl;
 		getline(cin, choice);
-		cout << endl;
+		system("CLS");
 
 		if (choice == "1")
 		{
@@ -255,7 +255,7 @@ string lvl1Wardrobe(character& mainChar, string& notableChoice)
 						cout << "cheese from. Give it back?" << endl;
 						cout << "(1) Return the cheese               (2) Never!" << endl;
 						getline(cin, choice);
-						cout << endl;
+						system("CLS");
 
 						if (choice == "1")
 						{

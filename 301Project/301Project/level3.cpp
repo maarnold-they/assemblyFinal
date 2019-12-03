@@ -59,12 +59,12 @@ string lvl3Start(character& mainChar, string& notableChoice)
 					cout << "You pet the chainsaw. Including the blade. You then hold it up in" << endl;
 					cout << "the air and let out a 'h-haw, yeah!' before deciding to go to the" << endl;
 					cout << "other room." << endl;
-					return "restroom";
+					return "breakroom";
 				}
 				else if (choice == "2")
 				{
 					cout << "You head to the next room of your quest." << endl;
-					return "restroom";
+					return "breakroom";
 				}
 				else
 				{
@@ -79,8 +79,9 @@ string lvl3Start(character& mainChar, string& notableChoice)
 	}
 }
 
-string lvl3Restroom(character& mainChar, string& notableChoice)
+string lvl3Breakroom(character& mainChar, string& notableChoice)
 {
 	string choice;
 	//INSERT LEVEL 3 RESTROOM CODE HERE!!!!!!!!!!!!!!!!!!!!!!!!!!
+	return "dummy";
 }

@@ -13,9 +13,9 @@ cout << "" << endl;
 
 */
 
-string lvl2Start(character& mainChar, void typo()) {
+string lvl2Start(character& mainChar, string notableChoice) {
 	cout << "you go through the door and find yourself in a fancy looking apartment." << endl;
-	cout << "you see a bathroom to your left and what looks to be a dining room ahead of you."
+	cout << "you see a bathroom to your left and what looks to be a dining room ahead of you." << endl;
 	cout << "You hear the gang members shouting growing closer."<< endl;
 	string choice;
 	while (true) {
@@ -40,7 +40,7 @@ string lvl2Start(character& mainChar, void typo()) {
 			cout << "You manage to defeat the thug, only to realize" << endl;
 			cout << "that there's, like, 15 other gang members making their way towards you." << endl;
 			cout << "You look to your left and notice a bathroom and run in." << endl;
-			lvl2bathroom(mainChar, typo());
+			//lvl2Bathroom(mainChar, typo());
 			break;
 		}
 		if (choice == "3") {
@@ -52,7 +52,7 @@ string lvl2Start(character& mainChar, void typo()) {
 	}
 }
 
-void lvl2bathroom(character& mainChar, void typo()) {
+string lvl2Bathroom(character& mainChar, string notableChoice) {
 	int wait = 0; //tracks how long use has been in the bathroom. at wait=3 thugs leave the room
 	cout << "you quickly shut the bathroom door and lock it.\n";
 	cout << "it isnt until you hear the thugs walk past the bathroom that you take the time inspect the bathroom.\n";

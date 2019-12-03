@@ -18,9 +18,9 @@ string lvl0Start(character& mainChar, string & notableChoice)
 		cout << "It's not like I forgot or anything, but, uhh..." << endl;
 		cout << "What was your name again?" << endl;
 		getline(cin, mainChar.name);
+		system("CLS");
 		cout << "Yeah, that's right, your name is " << mainChar.name << "!" << endl;
 		cout << "Told ya I didn't forget!" << endl << endl;
-
 		cout << "Anyway, you wake up in a straaaaaange place." << endl;
 		cout << "You notice an old man in the fetal position rocking back and forth in the corner." << endl;
 		string choice;
@@ -29,7 +29,7 @@ string lvl0Start(character& mainChar, string & notableChoice)
 			cout << "You have a couple options here." << endl;
 			cout << "(1) Talk to him                (2) Be anti-social" << endl;
 			getline(cin, choice);
-			cout << endl;
+			system("CLS");
 
 			if (choice == "1")
 			{
@@ -55,7 +55,7 @@ string lvl0Start(character& mainChar, string & notableChoice)
 	{
 		cout << "(1) Fine, I'll try to understand               (2) I hate children" << endl;
 		getline(cin, choice);
-		cout << endl;
+		system("CLS");
 
 		if (choice == "1")
 		{
@@ -69,7 +69,7 @@ string lvl0Start(character& mainChar, string & notableChoice)
 			{
 				cout << "(1) Sure, why not                         (2) My fists will more than suffice" << endl;
 				getline(cin, choice);
-				cout << endl;
+				system("CLS");
 
 				if (choice == "1")
 				{
@@ -110,7 +110,7 @@ string lvl0Start(character& mainChar, string & notableChoice)
 		cout << "Leave?" << endl;
 		cout << "(1) Blow this popsicle stand                (2) Nah, I like boring rooms" << endl;
 		getline(cin, choice);
-		cout << endl;
+		system("CLS");
 
 		if (choice == "1")
 		{
@@ -145,7 +145,7 @@ string lvl0Hall(character & mainChar, string & notableChoice)
 		cout << "What do you do? " << endl;
 		cout << "(1) Look around the hall                  (2) Talk to someone in line" << endl;
 		getline(cin, choice);
-		cout << endl;
+		system("CLS");
 
 		int cheese = 0x0001;
 
@@ -166,7 +166,7 @@ string lvl0Hall(character & mainChar, string & notableChoice)
 					cout << "Snatch the cheese?" << endl;
 					cout << "(1) Heck yeah! CHEESE!                 (2) Cheese is for the weak" << endl;
 					getline(cin, choice);
-					cout << endl;
+					system("CLS");
 
 					if (choice == "1")
 					{
@@ -219,7 +219,7 @@ string lvl0Hall(character & mainChar, string & notableChoice)
 	{
 		cout << "(1) Take the fight to the gangsters               (2) Give in to the cycle and pay the gangsters" << endl;
 		getline(cin, choice);
-		cout << endl;
+		system("CLS");
 
 		if (choice == "1")
 		{
@@ -274,7 +274,7 @@ string lvl0Lair(character& mainChar, string & notableChoice)
 		cout << "What do you do?" << endl;
 		cout << "(1) Say you're sorry                 (2) Bee line for the stairs" << endl;
 		getline(cin, choice);
-		cout << endl;
+		system("CLS");
 		if (choice == "1")
 		{
 			cout << "You apologize for having killed the gang's leader." << endl;
