@@ -142,11 +142,19 @@ void fightHeader(opponent enemy) {
 }
 
 int getDamage(character protag, int weapon) {
-	long weaponDamage = (protag.inventory << 32) && 0xFFFF;
+	//tempInv handles implicit zeros messing with bitshift operations
+	unsigned long long tempInv = 0xFFff0000FFffFFff | protag.inventory;
+	long weaponDamage = (tempInv << 32) | weapon;
+	cout << "inventory: " << std::hex << protag.inventory << endl;
+	cout << "weapon: " << std::hex << weaponDamage << endl;
 	int temp = 0;
 	if (weaponDamage != 0) {
-		for (int i = 0; i <= weaponDamage; i += 15) {
+		//for loops increments by base 16, every increment adds one value to damage
+		// 0xFFFF = 4 extra damage;
+		for (int i = 0; i < weaponDamage; i ++) {
 			temp++;
+			cout << "i: " << i << endl;
+			i = i * 16;
 		}
 	}
 	return weapon + temp;
@@ -159,8 +167,8 @@ void fight(character& protag, opponent& enemy) {
 	bool enemyGuard = false;
 	bool playerGuard = false;
 	vector <pair<string, string>> options = setOptions();
-	//newWeapon(5, protag);
-	int weapon = 5;
+	newWeapon(32, protag);
+	int weapon = 5; //player does base 5 damage, weapons increase damage
 	weapon = getDamage(protag, weapon);
 	while (protag.HP > 0 && enemy.HP > 0) {
 		fightHeader(enemy);
@@ -184,10 +192,11 @@ void fight(character& protag, opponent& enemy) {
 
 	else {
 		cout << "\nthe bad guy died yay. \n\n";
-		//protag.exp += enemy.exp;
+		protag.exp += enemy.exp;
 		if (protag.exp >= 20) {
 			cout << "You leveled up! Max HP increased by 5.\n";
-			// protag.exp = protag.exp % 20;
+			protag.exp = protag.exp % 20;
+			protag.level++;
 		}
 	}
 }
