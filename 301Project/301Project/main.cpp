@@ -73,7 +73,5 @@ int main()
 
 //TODO:
 //Add ability to move to other rooms at any time
-//Add screen clears in combat
-//Implement level ups
-//Add pauses until player hits enter when necessary
 //Add HUD displaying where you are, your name, your health, (perhaps even inventory)
+//Add moves lists for both enemies AND the player

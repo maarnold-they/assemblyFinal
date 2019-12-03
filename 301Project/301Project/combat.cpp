@@ -121,19 +121,21 @@ void enemyMove(vector <pair<string, string>> options,
 		cout << "\nthe man guards himself against the next attack\n";
 		enemyGuard = true;
 	}
+	cout << endl << "Press enter for next turn..." << endl;
+	cin.get();
+	system("CLS");
 }
 
 /*
 every turn the enemies condition is displayed
 */
 void fightHeader(opponent enemy) {
-	int hpChecker = 10; //reference for dialouge of enemies status
+	int hpChecker = 10; //reference for dialogue of enemies status
 	if (enemy.HP > hpChecker) {
 		cout << enemy.name << " wants to fight!\nWhat will you do?\n";
 	}
 	else if (hpChecker / 2 < enemy.HP <= hpChecker) {
 		cout << enemy.name << " looks tired!\nWhat will you do?\n";
-
 	}
 	else {
 		cout << enemy.name << " looks like they might collapse any moment!\n";
@@ -164,6 +166,9 @@ int getDamage(character protag, int weapon) {
 main function for combat. uses while loop for each turn
 */
 void fight(character& protag, opponent& enemy) {
+	cout << "Press any key to BATTLE." << endl;
+	cin.get();
+	system("CLS");
 	bool enemyGuard = false;
 	bool playerGuard = false;
 	vector <pair<string, string>> options = setOptions();
@@ -198,5 +203,7 @@ void fight(character& protag, opponent& enemy) {
 			protag.exp = protag.exp % 20;
 			protag.level++;
 		}
+		system("pause");
+		system("CLS");
 	}
 }
