@@ -8,9 +8,8 @@ using std::cin;
 using std::endl;
 using std::string;
 
-string lvl3Start(character& mainChar, string& notableChoice)
+string lvl3Start(character& mainChar, string& notableChoice, string& choice)
 {
-	string choice;
 	cout << "At this point, you're just plain tired. But you keep on trucking." << endl;
 	cout << "You find yourself in a garage. Yes, a garage. On the fourth floor." << endl;
 	cout << "There's a car, naturally, as well as a red toolbox." << endl;
@@ -19,7 +18,7 @@ string lvl3Start(character& mainChar, string& notableChoice)
 		cout << "What do you do?" << endl;
 		cout << "(1) Get in the car           (2) Open tool box" << endl;
 		getline(cin, choice);
-		cout << endl;
+		system("CLS");
 
 		if (choice == "1")
 		{
@@ -52,7 +51,7 @@ string lvl3Start(character& mainChar, string& notableChoice)
 			{
 				cout << "(1) Admire chainsaw            (2) Enter other room" << endl;
 				getline(cin, choice);
-				cout << endl;
+				system("CLS");
 
 				if (choice == "1")
 				{
@@ -79,9 +78,8 @@ string lvl3Start(character& mainChar, string& notableChoice)
 	}
 }
 
-string lvl3Breakroom(character& mainChar, string& notableChoice)
+string lvl3Breakroom(character& mainChar, string& notableChoice, string& choice)
 {
-	string choice;
-	//INSERT LEVEL 3 RESTROOM CODE HERE!!!!!!!!!!!!!!!!!!!!!!!!!!
+	//INSERT LEVEL 3 BREAKROOM CODE HERE!!!!!!!!!!!!!!!!!!!!!!!!!!
 	return "dummy";
 }

@@ -7,14 +7,6 @@
 //Make a text-based choose-your-own-adventure game
 //featuring turn-based combat and an inventory system
 //utilizing bitwise operations.
-//So far, there has been good progress on level 0, but the combat system
-//and inventory system still need to be implemented
-//before it can be finished. Naturally, they are what will
-//be worked on next.
-//For now, level 0 prompts the user to make some decisions,
-//and different responses occur based on what the user
-//inputs. There are checks in place for if the user types
-//an invalid response.
 
 #ifndef LEVELTEMPLATE_H
 #define LEVELTEMPLATE_H
@@ -24,7 +16,7 @@
 #include<utility>
 #include<vector>
 
-
+//struct for main character object
 struct character
 {
 	std::string name;
@@ -32,6 +24,7 @@ struct character
 	unsigned long long inventory = 0; //needed it to be 64 bits of unsigned.
 	int maxHP = 40;
 	int HP = maxHP;
+	std::vector<std::pair<std::string, int>> abilities;
 	int exp = 0;
 	int level = 1;
 };
@@ -55,53 +48,55 @@ bool checkKey(int key, character& protag);
 
 //unsigned long long noWeapons = 0xFFff0000FFffFFff; //removes all weapons when put through & operation.
 
-
+//struct for enemy object
 struct opponent
 {
+	int maxHP;
 	int HP;
 	std::string name;
 	//moves has a list of moves along with their damage values
 	//use rand through the list of moves to determine what the enemy does
 	std::vector<std::pair<std::string, int>> moves;
+	int attack;
 	int money;
 	int exp;
 };
 
+//combat.cpp functions
 void fight(character& protag, opponent& enemy);
-
-void printOptions(std::vector <std::pair<std::string, std::string>> options);
-
-void playerMove(std::vector <std::pair<std::string, std::string>> options, int& weapon, std::string input,
-	character& protag, opponent& enemy, bool& enemyGuard, bool& playerGuard);
-
-void enemyMove(std::vector <std::pair<std::string, std::string>> options,
-	character& protag, opponent& enemy, bool& enemyGuard, bool& playerGuard);
 
 void fightHeader(opponent enemy);
 
+void printHUD(std::vector<std::pair<std::string, std::string>> options, int& weapon, std::string input,
+	character& protag, opponent& enemy);
+
+//All-around functions
 void typo();
 
-std::string lvl0Start(character& mainChar, std::string & notableChoice);
+//level0.cpp functions
+std::string lvl0Start(character& mainChar, std::string & notableChoice, std::string& choice);
 
-std::string lvl0Hall(character& mainChar, std::string & notableChoice);
+std::string lvl0Hall(character& mainChar, std::string & notableChoice, std::string& choice);
 
-std::string lvl0Lair(character& mainChar, std::string & notableChoice);
+std::string lvl0Lair(character& mainChar, std::string & notableChoice, std::string& choice);
 
-std::string lvl1Start(character& mainChar, std::string & notableChoice);
+//level1.cpp functions
+std::string lvl1Start(character& mainChar, std::string & notableChoice, std::string& choice);
 
-std::string lvl1Kitchen(character& mainChar, std::string& notableChoice);
+std::string lvl1Kitchen(character& mainChar, std::string& notableChoice, std::string& choice);
 
-std::string lvl1Wardrobe(character& mainChar, std::string& notableChoice);
+std::string lvl1Wardrobe(character& mainChar, std::string& notableChoice, std::string& choice);
 
-std::string lvl1Staircase(character& mainChar, std::string& notableChoice);
+std::string lvl1Staircase(character& mainChar, std::string& notableChoice, std::string& choice);
 
-//INSERT LVL 2 FUNCTION PROTOTYPES HERE!!!!!!!!!
-std::string lvl2Start(character& mainChar, std::string& notableChoice);
+//level2.cpp functions
+std::string lvl2Start(character& mainChar, std::string& notableChoice, std::string& choice);
 
-std::string lvl2Bathroom(character& mainChar, std::string& notableChoice);
+std::string lvl2Bathroom(character& mainChar, std::string& notableChoice, std::string& choice);
 
-std::string lvl3Start(character& mainChar, std::string& notableChoice);
+//level3.cpp functions
+std::string lvl3Start(character& mainChar, std::string& notableChoice, std::string& choice);
 
-std::string lvl3Breakroom(character& mainChar, std::string& notableChoice);
+std::string lvl3Breakroom(character& mainChar, std::string& notableChoice, std::string& choice);
 
 #endif

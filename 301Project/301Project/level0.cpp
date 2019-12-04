@@ -13,7 +13,7 @@ void typo()
 	std::cout << "Hey, are you sure you meant to type that? I don't think you did." << std::endl;
 }
 
-string lvl0Start(character& mainChar, string & notableChoice)
+string lvl0Start(character& mainChar, string & notableChoice, string & choice)
 {
 		cout << "It's not like I forgot or anything, but, uhh..." << endl;
 		cout << "What was your name again?" << endl;
@@ -23,7 +23,6 @@ string lvl0Start(character& mainChar, string & notableChoice)
 		cout << "Told ya I didn't forget!" << endl << endl;
 		cout << "Anyway, you wake up in a straaaaaange place." << endl;
 		cout << "You notice an old man in the fetal position rocking back and forth in the corner." << endl;
-		string choice;
 		while (true)
 		{
 			cout << "You have a couple options here." << endl;
@@ -77,6 +76,10 @@ string lvl0Start(character& mainChar, string & notableChoice)
 					cout << "the old man's gonna give you a sheath for free." << endl << endl;
 					int twigSword = 0x000F;
 					newWeapon(twigSword, mainChar); //twig sword enters player's inventory
+					cout << endl << "Learned Ability 'Heavy Slash'!" << endl;
+					mainChar.abilities.push_back(std::make_pair("Heavy Slash", 5));
+					cout << endl << "Learned Ability 'Heavier Slash'!" << endl;
+					mainChar.abilities.push_back(std::make_pair("Heavier Slash", 8));
 					break;
 				}
 				else if (choice == "2")
@@ -128,9 +131,8 @@ string lvl0Start(character& mainChar, string & notableChoice)
 	}
 }
 
-string lvl0Hall(character & mainChar, string & notableChoice)
+string lvl0Hall(character & mainChar, string & notableChoice, string& choice)
 {
-	string choice;
 	bool first = true;
 	cout << "You hear the old man mumble 'good luck' before shutting" << endl;
 	cout << "the door behind you and locking it. You guess there was never" << endl;
@@ -247,9 +249,8 @@ string lvl0Hall(character & mainChar, string & notableChoice)
 	return "Gangster's Lair";
 }
 
-string lvl0Lair(character& mainChar, string & notableChoice)
+string lvl0Lair(character& mainChar, string & notableChoice, string& choice)
 {
-	string choice;
 	cout << "After pushing and shoving dozens upon dozens of people," << endl;
 	cout << "you make your way into the gangsters' lair." << endl;
 	cout << "A man who clearly stands out as the leader gestures for you" << endl;
@@ -259,8 +260,9 @@ string lvl0Lair(character& mainChar, string & notableChoice)
 	cout << "prepare for battle!" << endl << endl;
 
 	opponent gangLeader;
-	gangLeader.HP = 20;
+	gangLeader.maxHP = 20;
 	gangLeader.name = "Gang Leader";
+	gangLeader.attack = 5;
 	gangLeader.money = 5;
 	gangLeader.exp = 10;
 

@@ -13,11 +13,10 @@ cout << "" << endl;
 
 */
 
-string lvl2Start(character& mainChar, string notableChoice) {
+string lvl2Start(character& mainChar, string& notableChoice, string& choice) {
 	cout << "you go through the door and find yourself in a fancy looking apartment." << endl;
 	cout << "you see a bathroom to your left and what looks to be a dining room ahead of you." << endl;
 	cout << "You hear the gang members shouting growing closer."<< endl;
-	string choice;
 	while (true) {
 		cout << "What do you do?" << endl;
 		cout << "(1) Wait for them to come and fight one               (2) Push on and gain more distance" << endl;
@@ -52,11 +51,10 @@ string lvl2Start(character& mainChar, string notableChoice) {
 	}
 }
 
-string lvl2Bathroom(character& mainChar, string notableChoice) {
+string lvl2Bathroom(character& mainChar, string& notableChoice, string& choice) {
 	int wait = 0; //tracks how long use has been in the bathroom. at wait=3 thugs leave the room
 	cout << "you quickly shut the bathroom door and lock it.\n";
 	cout << "it isnt until you hear the thugs walk past the bathroom that you take the time inspect the bathroom.\n";
-	string choice;
 	while (true) {
 		cout << "what do you do?\n";
 		cout << "(1) look for something useful                 ";

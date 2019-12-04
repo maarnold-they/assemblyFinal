@@ -8,20 +8,19 @@ int main()
 {
 	//Starting stats
 	character mainChar;
-	mainChar.aggression = 0;
-	mainChar.HP = 40;
-	//String that is the output text when the player makes a typo
+	
 	std::string notableChoice = "0";
-	std::string move = lvl0Start(mainChar, notableChoice);
+	std::string choice = "";
+	std::string move = lvl0Start(mainChar, notableChoice, choice);
 
 	//Level 0 Loop
 	while (move != "lvl1")
 	{
 		if (move == "hall")
-			move = lvl0Hall(mainChar, notableChoice);
+			move = lvl0Hall(mainChar, notableChoice, choice);
 
 		if (move == "Gangster's Lair")
-			move = lvl0Lair(mainChar, notableChoice);
+			move = lvl0Lair(mainChar, notableChoice, choice);
 
 		if (move == "game over")
 		{
@@ -34,16 +33,16 @@ int main()
 	while (move != "lvl2")
 	{
 		if (move == "lvl1")
-			move = lvl1Start(mainChar, notableChoice);
+			move = lvl1Start(mainChar, notableChoice, choice);
 
 		if (move == "kitchen")
-			move = lvl1Kitchen(mainChar, notableChoice);
+			move = lvl1Kitchen(mainChar, notableChoice, choice);
 
 		if (move == "wardrobe")
-			move = lvl1Wardrobe(mainChar, notableChoice);
+			move = lvl1Wardrobe(mainChar, notableChoice, choice);
 
 		if (move == "staircase")
-			move = lvl1Staircase(mainChar, notableChoice);
+			move = lvl1Staircase(mainChar, notableChoice, choice);
 
 		if (move == "game over")
 		{
@@ -58,10 +57,10 @@ int main()
 	while (move != "end")
 	{
 		if (move == "lvl3")
-			move = lvl3Start(mainChar, notableChoice);
+			move = lvl3Start(mainChar, notableChoice, choice);
 
 		if(move == "breakroom")
-			move = lvl3Breakroom(mainChar, notableChoice);
+			move = lvl3Breakroom(mainChar, notableChoice, choice);
 
 		if (move == "game over")
 		{
@@ -73,5 +72,5 @@ int main()
 
 //TODO:
 //Add ability to move to other rooms at any time
-//Add HUD displaying where you are, your name, your health, (perhaps even inventory)
-//Add moves lists for both enemies AND the player
+//Add moves lists for enemies
+//getDamage still needs to be fixed

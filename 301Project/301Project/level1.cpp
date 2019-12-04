@@ -8,10 +8,8 @@ using std::cin;
 using std::endl;
 using std::string;
 
-string lvl1Start(character& mainChar, string & notableChoice)
+string lvl1Start(character& mainChar, string & notableChoice, string& choice)
 {
-	string choice;
-
 	//Second visit, when you only have one key
 	int key = 0x0001;
 	int key2 = 0x0010;
@@ -121,9 +119,8 @@ string lvl1Start(character& mainChar, string & notableChoice)
 	}
 }
 
-string lvl1Kitchen(character& mainChar, string& notableChoice)
+string lvl1Kitchen(character& mainChar, string& notableChoice, string& choice)
 {
-	string choice;
 	cout << "You find yourself in a kitchen." << endl;
 	cout << "There are pots and pans everywhere. It seems no one has bothered" << endl;
 	cout << "to clean up after themselves in quite a while. You notice a fridge" << endl;
@@ -219,9 +216,8 @@ string lvl1Kitchen(character& mainChar, string& notableChoice)
 	}
 }
 
-string lvl1Wardrobe(character& mainChar, string& notableChoice)
+string lvl1Wardrobe(character& mainChar, string& notableChoice, string& choice)
 {
-	string choice;
 	int key2 = 0x0010;
 
 	cout << "You find yourself in a walk-in closet of sorts." << endl;
@@ -312,17 +308,17 @@ string lvl1Wardrobe(character& mainChar, string& notableChoice)
 	}
 }
 
-string lvl1Staircase(character& mainChar, string& notableChoice)
+string lvl1Staircase(character& mainChar, string& notableChoice, string& choice)
 {
-	string choice;
 	cout << "The next room turns out to be a staircase! You head up a few steps, and then" << endl;
 	cout << "hear footsteps. Loud, fast footsteps." << endl;
 	cout << "You've never seen a gangster run so fast. There's no way you'll" << endl;
 	cout << "outrun him. Prepare for a fight!" << endl << endl;
 
 	opponent gangster;
-	gangster.HP = 15;
-	gangster.name = "speedy gangsta";
+	gangster.maxHP = 15;
+	gangster.name = "Speedy Gangsta";
+	gangster.attack = 5;
 	gangster.exp = 5;
 	gangster.money = 10;
 
@@ -335,7 +331,6 @@ string lvl1Staircase(character& mainChar, string& notableChoice)
 	else
 	{
 		cout << "Immediately after defeating the gangster, another gangster enters the fray!" << endl << endl;
-		gangster.HP = 15;
 		fight(mainChar, gangster);
 		if (notableChoice == "okay")
 		{
@@ -347,7 +342,6 @@ string lvl1Staircase(character& mainChar, string& notableChoice)
 		{
 			cout << "Yet ANOTHER gangster shows up immediately after the second one's defeat." << endl;
 			cout << "You really should have at least LOCKED the door." << endl << endl;
-			gangster.HP = 15;
 			fight(mainChar, gangster);
 			cout << "You wipe your mouth and find your hand now partially painted red. Great." << endl;
 			cout << "You utilize that adrenaline of yours to get to the next floor as quickly" << endl;
