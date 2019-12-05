@@ -11,7 +11,6 @@ using std::pair;
 /*
 PUT IN HEADER FILE:
 	void fight(character& protag, opponent& enemy);
-
 TEST DUMMIES (just slap them into main):
 	character protag;
 	protag.name = "bobby";
@@ -22,7 +21,7 @@ TEST DUMMIES (just slap them into main):
 	fight(mainChar, enemy);
 */
 
-void printOptions(vector <pair<string, string>> options, character & protag, opponent & enemy, int & weapon) {
+void printOptions(vector <pair<string, string>> options, character& protag, opponent& enemy, int& weapon) {
 	cout << "\nPLAYER: " << protag.name << endl;
 	cout << "HEALTH: " << protag.HP << endl;
 	cout << "Attack: " << weapon << endl;
@@ -83,7 +82,7 @@ void playerMove(vector <pair<string, string>> options, int& weapon, string input
 			else
 			{
 				vector<int> hotKeys;
-				cout  << "Abilities:" << endl;
+				cout << "Abilities:" << endl;
 				for (int i = 0; i < protag.abilities.size(); ++i)
 				{
 					cout << protag.abilities[i].first << " (" << i + 1 << ")" << endl;
@@ -219,7 +218,7 @@ int getDamage(character protag, int weapon) {
 	if (weaponDamage != 0) {
 		//for loops increments by base 16, every increment adds one value to damage
 		// 0xFFFF = 4 extra damage;
-		for (int i = 1; i < weaponDamage; i ++) {
+		for (int i = 1; i < weaponDamage; i++) {
 			temp++;
 			i = i * 16;
 		}
@@ -228,7 +227,7 @@ int getDamage(character protag, int weapon) {
 }
 
 void printHUD(vector<pair<string, string>> options, int& weapon, string input,
-character& protag, opponent& enemy)
+	character& protag, opponent& enemy)
 {
 	fightHeader(enemy);
 	printOptions(options, protag, enemy, weapon);
@@ -274,7 +273,7 @@ void fight(character& protag, opponent& enemy) {
 		if (enemy.name == "The One Who Weeps With Me") {
 			cout << "The One Who Weeps With Me is defeated.\n";
 			cout << "They assume the position as a placeholder for your heart.\n";
-			cout << "...\nYou Dissaprove.\n";
+			cout << "...\nYou Disapprove.\n";
 		}
 		else {
 			cout << "\nthe bad guy died yay. \n\n";

@@ -1,12 +1,12 @@
 ﻿  combat.cpp
-C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(31,20): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(87,23): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(105,26): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(30,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(86,23): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(104,26): warning C4018:  '<': signed/unsigned mismatch
   inventory.cpp
   level0.cpp
   level1.cpp
   level2.cpp
-C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(205,48): warning C4804:  '<=': unsafe use of type 'bool' in operation
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(204,48): warning C4804:  '<=': unsafe use of type 'bool' in operation
   level3.cpp
   main.cpp
   Generating Code...

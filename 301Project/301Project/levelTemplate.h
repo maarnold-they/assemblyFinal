@@ -30,8 +30,8 @@ struct character
 };
 
 /*
-	weapon, utility, and key are all integers so that you only have 
-	to know them relative to their own parts of the inventory and 
+	weapon, utility, and key are all integers so that you only have
+	to know them relative to their own parts of the inventory and
 	then it's not such a ridiculously complicated inventory.
 */
 void newWeapon(int weapon, character& protag);
@@ -74,14 +74,14 @@ void printHUD(std::vector<std::pair<std::string, std::string>> options, int& wea
 void typo();
 
 //level0.cpp functions
-std::string lvl0Start(character& mainChar, std::string & notableChoice, std::string& choice);
+std::string lvl0Start(character& mainChar, std::string& notableChoice, std::string& choice);
 
-std::string lvl0Hall(character& mainChar, std::string & notableChoice, std::string& choice);
+std::string lvl0Hall(character& mainChar, std::string& notableChoice, std::string& choice);
 
-std::string lvl0Lair(character& mainChar, std::string & notableChoice, std::string& choice);
+std::string lvl0Lair(character& mainChar, std::string& notableChoice, std::string& choice);
 
 //level1.cpp functions
-std::string lvl1Start(character& mainChar, std::string & notableChoice, std::string& choice);
+std::string lvl1Start(character& mainChar, std::string& notableChoice, std::string& choice);
 
 std::string lvl1Kitchen(character& mainChar, std::string& notableChoice, std::string& choice);
 
@@ -90,12 +90,11 @@ std::string lvl1Wardrobe(character& mainChar, std::string& notableChoice, std::s
 std::string lvl1Staircase(character& mainChar, std::string& notableChoice, std::string& choice);
 
 //level2.cpp functions
-std::string lvl2Start(character& mainChar, std::string& choice, bool & thugCheck);
+std::string lvl2Start(character& mainChar, std::string& choice, bool& thugCheck);
 
 std::string lvl2Bathroom(character& mainChar, std::string& choice, bool& thugCheck);
 
 std::string lvl2livingRoom(character& mainChar, std::string& choice, bool& thugCheck);
-
 
 //level3.cpp functions
 std::string lvl3Start(character& mainChar, std::string& notableChoice, std::string& choice);

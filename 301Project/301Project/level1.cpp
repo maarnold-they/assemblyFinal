@@ -8,7 +8,7 @@ using std::cin;
 using std::endl;
 using std::string;
 
-string lvl1Start(character& mainChar, string & notableChoice, string& choice)
+string lvl1Start(character& mainChar, string& notableChoice, string& choice)
 {
 	//Second visit, when you only have one key
 	int key = 0x0001;
@@ -40,7 +40,7 @@ string lvl1Start(character& mainChar, string & notableChoice, string& choice)
 		cout << "but you've made it through now. You enter the next room." << endl << endl;
 		return "staircase";
 	}
-	
+
 	//First Visit, when you have no keys
 	cout << "You reach the top of the stairs and find a door." << endl;
 	cout << "You open the door and close it behind you. You realize" << endl;
@@ -52,7 +52,7 @@ string lvl1Start(character& mainChar, string & notableChoice, string& choice)
 		cout << "(3) Keep door unlocked                    (4) Throw chair in front of door" << endl;
 		getline(cin, choice);
 		system("CLS");
-		
+
 		if (choice == "1")
 		{
 			cout << "You throw the bookcase in front of the door." << endl;

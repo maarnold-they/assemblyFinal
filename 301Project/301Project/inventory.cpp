@@ -1,4 +1,3 @@
-
 #include "levelTemplate.h"
 unsigned long long noWeapons = 0xFFff0000FFffFFff;
 void newWeapon(int weapon, character& protag)

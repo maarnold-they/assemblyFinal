@@ -8,7 +8,6 @@ int main()
 {
 	//Starting stats
 	character mainChar;
-	
 	std::string notableChoice = "0";
 	std::string choice = "";
 	std::string move = lvl0Start(mainChar, notableChoice, choice);
@@ -76,7 +75,7 @@ int main()
 		if (move == "lvl3")
 			move = lvl3Start(mainChar, notableChoice, choice);
 
-		if(move == "breakroom")
+		if (move == "breakroom")
 			move = lvl3Breakroom(mainChar, notableChoice, choice);
 
 		if (move == "game over")
