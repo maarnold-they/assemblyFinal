@@ -274,7 +274,7 @@ void fight(character& protag, opponent& enemy) {
 		if (enemy.name == "The One Who Weeps With Me") {
 			cout << "The One Who Weeps With Me is defeated.\n";
 			cout << "They assume the position as a placeholder for your heart.\n";
-			cout << "...\nYou Dissaprove.\n";
+			cout << "...\nYou Disapprove.\n";
 		}
 		else {
 			cout << "\nthe bad guy died yay. \n\n";
