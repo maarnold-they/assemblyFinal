@@ -7,13 +7,15 @@ using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
-/*
-cout << "" << endl;
+/* 
+
+cout << "" << endl;	
+
 */
 string lvl2Start(character& mainChar, string& choice, bool& thugCheck) {
 	cout << "you get a strong feeling that a different person is writing this\n";
 	cout << "and that the overall tone of this level doesnt fit with the other two\n";
-	cout << "levels...¯\_(v.v)_/¯";
+	cout << "levels...Â¯\_(v.v)_/Â¯";
 	cout << "\noh yeah, you also hear thugs closing in behind you...\n";
 	bool foodCheck = true; //player can eat food to refill health just once.
 	while (true) {
@@ -76,11 +78,11 @@ string lvl2Bathroom(character& mainChar, string& choice, bool& thugCheck) {
 		getline(cin, choice);
 		system("CLS");
 		cout << endl;
-		if (choice == "1") {
+		if (choice == "1"){
 			cout << "you look around but cant find anything useful.\n";
 			if (wait < 3) {
 				cout << "you hear the thugs rummaging around the room.\n";
-				wait++;
+					wait++;
 			}
 			else {
 				cout << "the room is silent and you can go without worry of attack.\n";

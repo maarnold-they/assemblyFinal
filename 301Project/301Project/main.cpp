@@ -11,7 +11,7 @@ int main()
 	std::string notableChoice = "0";
 	std::string choice = "";
 	std::string move = lvl0Start(mainChar, notableChoice, choice);
-
+	
 	//Level 0 Loop
 	while (move != "lvl1")
 	{
@@ -53,7 +53,7 @@ int main()
 	//Level 2
 	while (move != "lvl3") {
 		bool thugCheck = false;
-		if (move == "lvl2") {
+		if (move == "lvl2"){
 			move = lvl2Start(mainChar, choice, thugCheck);
 		}
 		if (move == "lvl2bathroom") {
@@ -75,7 +75,7 @@ int main()
 		if (move == "lvl3")
 			move = lvl3Start(mainChar, notableChoice, choice);
 
-		if (move == "breakroom")
+		if(move == "breakroom")
 			move = lvl3Breakroom(mainChar, notableChoice, choice);
 
 		if (move == "game over")
