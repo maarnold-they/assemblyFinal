@@ -1,2 +1,14 @@
-﻿  level0.cpp
+﻿  combat.cpp
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(31,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(87,23): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(105,26): warning C4018:  '<': signed/unsigned mismatch
+  inventory.cpp
+  level0.cpp
+  level1.cpp
+  level2.cpp
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(205,48): warning C4804:  '<=': unsafe use of type 'bool' in operation
+  level3.cpp
+  main.cpp
+  Generating Code...
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\level2.cpp(16,10): warning C4129:  '_': unrecognized character escape sequence
   301Project.vcxproj -> C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\Debug\301Project.exe
