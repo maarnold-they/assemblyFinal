@@ -257,15 +257,22 @@ void fight(character& protag, opponent& enemy) {
 	}
 
 	else {
-		cout << "\nthe bad guy died yay. \n\n";
-		protag.exp += enemy.exp;
-		enemy.HP = enemy.maxHP;
-		if (protag.exp >= 20) {
-			cout << "You leveled up! Max HP increased by 5.\n";
-			protag.exp = protag.exp % 20;
-			protag.level++;
-		}
-		system("pause");
-		system("CLS");
+			if (enemy.name == "The One Who Weeps With Me") {
+				cout << "The One Who Weeps With Me is defeated.\n";
+				cout << "They assume the position as a placeholder for your heart.\n";
+				cout << "...\nYou Disapprove.\n";
+			}
+			else {
+				cout << "\nthe bad guy died yay. \n\n";
+			}
+			protag.exp += enemy.exp;
+			enemy.HP = enemy.maxHP;
+			if (protag.exp >= 20) {
+				cout << "You leveled up! Max HP increased by 5.\n";
+				protag.exp = protag.exp % 20;
+				protag.level++;
+			}
+			system("pause");
+			system("CLS");
 	}
 }

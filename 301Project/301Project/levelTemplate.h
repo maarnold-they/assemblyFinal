@@ -90,9 +90,12 @@ std::string lvl1Wardrobe(character& mainChar, std::string& notableChoice, std::s
 std::string lvl1Staircase(character& mainChar, std::string& notableChoice, std::string& choice);
 
 //level2.cpp functions
-std::string lvl2Start(character& mainChar, std::string& notableChoice, std::string& choice);
+std::string lvl2Start(character& mainChar, std::string& choice, bool & thugCheck);
 
-std::string lvl2Bathroom(character& mainChar, std::string& notableChoice, std::string& choice);
+std::string lvl2Bathroom(character& mainChar, std::string& choice, bool& thugCheck);
+
+std::string lvl2livingRoom(character& mainChar, std::string& choice, bool& thugCheck);
+
 
 //level3.cpp functions
 std::string lvl3Start(character& mainChar, std::string& notableChoice, std::string& choice);
