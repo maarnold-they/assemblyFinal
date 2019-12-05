@@ -59,7 +59,7 @@ string lvl2Bathroom(character& mainChar, string& notableChoice, string& choice) 
 		cout << "what do you do?\n";
 		cout << "(1) look for something useful                 ";
 		if (wait < 3) {
-			cout << "(2) try to surprise attack the thugs             (3) wait for the thugs to leave\n";
+			cout << "(2) try to surprise attack the thugs\n(3) wait for the thugs to leave\n";
 		}
 		else {
 			cout << "leave the bathroom.\n";

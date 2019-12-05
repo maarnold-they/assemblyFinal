@@ -78,7 +78,7 @@ string lvl0Start(character& mainChar, string & notableChoice, string & choice)
 					newWeapon(twigSword, mainChar); //twig sword enters player's inventory
 					cout << endl << "Learned Ability 'Heavy Slash'!" << endl;
 					mainChar.abilities.push_back(std::make_pair("Heavy Slash", 5));
-					cout << "Learned Ability 'Heavier Slash'!" << endl;
+					cout << endl << "Learned Ability 'Heavier Slash'!" << endl;
 					mainChar.abilities.push_back(std::make_pair("Heavier Slash", 8));
 					break;
 				}

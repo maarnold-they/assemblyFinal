@@ -201,9 +201,8 @@ void fightHeader(opponent enemy) {
 
 int getDamage(character protag, int weapon) {
 	//tempInv handles implicit zeros messing with bitshift operations
-	//unsigned long long tempInv = 0xFFff0000FFffFFff | protag.inventory;
-	long weaponDamage = (protag.inventory >> 32) & 0x0000;
-	//cout << "Attack: " << weaponDamage << endl;
+	unsigned long long tempInv = 0xFFff0000FFffFFff | protag.inventory;
+	long weaponDamage = (protag.inventory >> 32) & 0xFFFF;
 	int temp = 0;
 	if (weaponDamage != 0) {
 		//for loops increments by base 16, every increment adds one value to damage
