@@ -10,7 +10,13 @@ using std::string;
 
 void typo()
 {
-	std::cout << "Hey, are you sure you meant to type that? I don't think you did." << std::endl;
+	cout << "Hey, are you sure you meant to type that? I don't think you did." << endl;
+}
+
+void newAbility(character & mainChar, ability newMove)
+{
+	cout << "Learned " << newMove.name << "!" << endl << endl;
+	mainChar.abilities.push_back(newMove);
 }
 
 string lvl0Start(character& mainChar, string& notableChoice, string& choice)
@@ -76,10 +82,13 @@ string lvl0Start(character& mainChar, string& notableChoice, string& choice)
 					cout << "the old man's gonna give you a sheath for free." << endl << endl;
 					int twigSword = 0x000F;
 					newWeapon(twigSword, mainChar); //twig sword enters player's inventory
-					cout << endl << "Learned Ability 'Heavy Slash'!" << endl;
-					mainChar.abilities.push_back(std::make_pair("Heavy Slash", 5));
-					cout << endl << "Learned Ability 'Heavier Slash'!" << endl;
-					mainChar.abilities.push_back(std::make_pair("Heavier Slash", 8));
+
+					ability heavySlash = { "Heavy Slash", 5, 1 };
+					newAbility(mainChar, heavySlash);
+
+					ability heavierSlash = { "Heavier Slash", 8, 3 };
+					newAbility(mainChar, heavierSlash);
+
 					break;
 				}
 				else if (choice == "2")

@@ -50,7 +50,7 @@ int main()
 		}
 	}
 
-	//Level 2
+	//Level 2 Loop
 	while (move != "lvl3") {
 		bool thugCheck = false;
 		if (move == "lvl2"){
@@ -87,6 +87,5 @@ int main()
 }
 
 //TODO:
-//Add ability to move to other rooms at any time
-//Add moves lists for enemies
-//getDamage still needs to be fixed
+//Add abilities for when player gets epic sword and chainsaw
+//Finish level 3

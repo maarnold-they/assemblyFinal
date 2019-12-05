@@ -41,9 +41,42 @@ string lvl3Start(character& mainChar, string& notableChoice, string& choice)
 			cout << "You open the red tool box. Inside are a wrench, a hammer, a chainsaw," << endl;
 			cout << "and a cup of applesauce. You decide that wielding a chainsaw would be" << endl;
 			cout << "friggin' awesome." << endl;
-			cout << "Acquired CHAINSAW!" << endl << endl;
-			int chainsaw = 0x0011;
-			newWeapon(chainsaw, mainChar);
+
+			int epicSword = 0x0fff;
+			bool byeChainsaw = false;
+
+			if (checkWeapon(epicSword, mainChar))
+			{
+				cout << "...Or at least that's what you thought until you realized your epic" << endl;
+				cout << "sword has better stats. RIP chainsaw." << endl;
+				while (true)
+				{
+					cout << "Equip Chainsaw anyway?" << endl;
+					cout << "(1) Nah, it ain't good enough           (2) Heck yeah, it's a CHAINSAW" << endl;
+					getline(cin, choice);
+					system("CLS");
+
+					if (choice == "1")
+					{
+						cout << "Yeah, TRULY cool chainsaws inflict instant death. You leave" << endl;
+						cout << "this chainsaw behind." << endl;
+						byeChainsaw = true;
+						break;
+					}
+					else if (choice == "2")
+					{
+						break;
+					}
+					else
+						typo();
+				}
+			}
+			if (!byeChainsaw)
+			{
+				cout << "Acquired CHAINSAW!" << endl << endl;
+				int chainsaw = 0x00ff;
+				newWeapon(chainsaw, mainChar);
+			}
 			cout << "After removing the chainsaw, you realize there is a key in the toolbox." << endl;
 			cout << "A smile begins to stretch across your face, until you realize it isn't" << endl;
 			cout << "a car key and there's a locked door in front of you." << endl;
@@ -55,9 +88,17 @@ string lvl3Start(character& mainChar, string& notableChoice, string& choice)
 
 				if (choice == "1")
 				{
-					cout << "You pet the chainsaw. Including the blade. You then hold it up in" << endl;
-					cout << "the air and let out a 'h-haw, yeah!' before deciding to go to the" << endl;
-					cout << "other room." << endl;
+					if (byeChainsaw)
+					{
+						cout << "You look at the chainsaw. It's pretty alright, you guess." << endl;
+						cout << "You head to the next room." << endl;
+					}
+					else
+					{
+						cout << "You pet the chainsaw. Including the blade. You then hold it up in" << endl;
+						cout << "the air and let out a 'h-haw, yeah!' before deciding to go to the" << endl;
+						cout << "other room." << endl;
+					}
 					return "breakroom";
 				}
 				else if (choice == "2")
@@ -80,6 +121,8 @@ string lvl3Start(character& mainChar, string& notableChoice, string& choice)
 
 string lvl3Breakroom(character& mainChar, string& notableChoice, string& choice)
 {
-	//INSERT LEVEL 3 BREAKROOM CODE HERE!!!!!!!!!!!!!!!!!!!!!!!!!!
+	cout << "You get to the breakroom, and it is filled to the BRIM with thugs" << endl;
+	cout << "chilling by the water cooler. This is a perfect opportunity to try" << endl;
+	cout << "out your brand new weapon!" << endl;
 	return "dummy";
 }

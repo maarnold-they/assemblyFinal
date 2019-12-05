@@ -16,6 +16,13 @@
 #include<utility>
 #include<vector>
 
+struct ability
+{
+	std::string name;
+	int damageBoost;
+	int MPcost;
+};
+
 //struct for main character object
 struct character
 {
@@ -24,9 +31,22 @@ struct character
 	unsigned long long inventory = 0; //needed it to be 64 bits of unsigned.
 	int maxHP = 40;
 	int HP = maxHP;
-	std::vector<std::pair<std::string, int>> abilities;
+	int maxMP = 5;
+	int MP = maxMP;
+	std::vector<ability> abilities;
 	int exp = 0;
 	int level = 1;
+};
+
+//struct for enemy object
+struct opponent
+{
+	int maxHP;
+	int HP;
+	std::string name;
+	int attack;
+	int money;
+	int exp;
 };
 
 /*
@@ -48,20 +68,6 @@ bool checkKey(int key, character& protag);
 
 //unsigned long long noWeapons = 0xFFff0000FFffFFff; //removes all weapons when put through & operation.
 
-//struct for enemy object
-struct opponent
-{
-	int maxHP;
-	int HP;
-	std::string name;
-	//moves has a list of moves along with their damage values
-	//use rand through the list of moves to determine what the enemy does
-	std::vector<std::pair<std::string, int>> moves;
-	int attack;
-	int money;
-	int exp;
-};
-
 //combat.cpp functions
 void fight(character& protag, opponent& enemy);
 
@@ -71,7 +77,9 @@ void printHUD(std::vector<std::pair<std::string, std::string>> options, int& wea
 	character& protag, opponent& enemy);
 
 //All-around functions
-void typo();
+void typo(); //located at top of level0.cpp
+
+void newAbility(character& mainChar, ability newMove); //located at top of level0.cpp
 
 //level0.cpp functions
 std::string lvl0Start(character& mainChar, std::string& notableChoice, std::string& choice);

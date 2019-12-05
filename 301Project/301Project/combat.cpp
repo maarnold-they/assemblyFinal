@@ -24,8 +24,9 @@ TEST DUMMIES (just slap them into main):
 
 void printOptions(vector <pair<string, string>> options, character & protag, opponent & enemy, int & weapon) {
 	cout << "\nPLAYER: " << protag.name << endl;
-	cout << "HEALTH: " << protag.HP << endl;
-	cout << "Attack: " << weapon << endl;
+	cout << "HEALTH: " << protag.HP << " / " << protag.maxHP << endl;
+	cout << "MP: " << protag.MP << " / " << protag.maxMP << endl;
+	cout << "ATTACK: " << weapon << endl;
 	cout << "\nENEMY: " << enemy.name << endl;
 	cout << "HEALTH: " << enemy.HP << endl;
 	for (int i = 0; i < options.size(); i++) {
@@ -62,6 +63,7 @@ void playerMove(vector <pair<string, string>> options, int& weapon, string input
 			}
 			else {
 				cout << "\nyou give the big slap... oh you know his feelings hurt.\n";
+				cout << enemy.name << " received " << weapon << " points of damage!" << endl;
 				enemy.HP = enemy.HP - weapon;
 			}
 			playerGuard = false;
@@ -86,7 +88,7 @@ void playerMove(vector <pair<string, string>> options, int& weapon, string input
 				cout  << "Abilities:" << endl;
 				for (int i = 0; i < protag.abilities.size(); ++i)
 				{
-					cout << protag.abilities[i].first << " (" << i + 1 << ")" << endl;
+					cout << protag.abilities[i].name << " [" << protag.abilities[i].MPcost << " MP] " << " (" << i + 1 << ")" << endl;
 					hotKeys.push_back(i + 1);
 				}
 				string abilityInput;
@@ -106,13 +108,24 @@ void playerMove(vector <pair<string, string>> options, int& weapon, string input
 					{
 						if (abilityInput == std::to_string(hotKeys[ii]))
 						{
-							cout << endl << protag.name << " used " << protag.abilities[ii].first << "!" << endl;
-							cout << enemy.name << " Received " << weapon + protag.abilities[ii].second << " points of damage!" << endl;
-							enemy.HP = enemy.HP - (weapon + protag.abilities[ii].second);
 							abilityExist = true;
-							playerGuard = false;
-							temp = false;
-							break;
+							if (protag.MP - protag.abilities[ii].MPcost >= 0)
+							{
+								cout << endl << protag.name << " used " << protag.abilities[ii].name << "!" << endl;
+								cout << enemy.name << " Received " << weapon + protag.abilities[ii].damageBoost << " points of damage!" << endl;
+								enemy.HP = enemy.HP - (weapon + protag.abilities[ii].damageBoost); //deal the boosted damage to the enemy
+								protag.MP -= protag.abilities[ii].MPcost; //use the required MP for the ability
+								playerGuard = false;
+								temp = false;
+								break;
+							}
+							else
+							{
+								system("CLS");
+								cout << endl << protag.name << " tried to use " << protag.abilities[ii].name << ", but didn't have enough MP!" << endl << endl;
+								playerGuard = false;
+								break;
+							}
 						}
 					}
 					if (!abilityExist)
@@ -282,9 +295,11 @@ void fight(character& protag, opponent& enemy) {
 		protag.exp += enemy.exp;
 		enemy.HP = enemy.maxHP;
 		if (protag.exp >= 20) {
-			cout << "You leveled up! Max HP increased by 5.\n";
+			cout << "You leveled up!\nMax HP increased by 5!\nMax MP increased by 5!";
 			protag.exp = protag.exp % 20;
 			protag.maxHP += 5;
+			protag.maxMP += 5;
+			protag.MP = protag.maxMP;
 			protag.level++;
 		}
 		system("pause");

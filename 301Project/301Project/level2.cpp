@@ -13,7 +13,7 @@ cout << "" << endl;
 
 */
 string lvl2Start(character& mainChar, string& choice, bool& thugCheck) {
-	cout << "you get a strong feeling that a different person is writing this\n";
+	cout << "You get a strong feeling that a different person is writing this\n";
 	cout << "and that the overall tone of this level doesnt fit with the other two\n";
 	cout << "levels...¯\_(v.v)_/¯";
 	cout << "\noh yeah, you also hear thugs closing in behind you...\n";
@@ -165,7 +165,7 @@ string lvl2livingRoom(character& mainChar, string& choice, bool& thugCheck) {
 			}
 			else if (choice == "2") {
 				cout << "you leap out of the window to a place called...\n";
-				cout << "...\n...level3.cpp";
+				cout << "...\n...level3.cpp\n\n";
 				break;
 			}
 		}
@@ -173,7 +173,7 @@ string lvl2livingRoom(character& mainChar, string& choice, bool& thugCheck) {
 	else if (!thugCheck) {
 		cout << "you run into the dining room and a thug chases you while the other run away idk...\n";
 		cout << "you prepare for a fight but the burly flexxer grabs you and throws you to level3.cpp\n";
-
+		cout << endl;
 	}
 	else {
 		thugCheck = true;
