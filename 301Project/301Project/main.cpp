@@ -8,11 +8,10 @@ int main()
 {
 	//Starting stats
 	character mainChar;
-	
 	std::string notableChoice = "0";
 	std::string choice = "";
 	std::string move = lvl0Start(mainChar, notableChoice, choice);
-
+	
 	//Level 0 Loop
 	while (move != "lvl1")
 	{
@@ -51,7 +50,24 @@ int main()
 		}
 	}
 
-	//INSERT LEVEL 2 LOOP HERE!!!!!!!!!!!!!!!!!!!!!!!!
+	//Level 2
+	while (move != "lvl3") {
+		bool thugCheck = false;
+		if (move == "lvl2"){
+			move = lvl2Start(mainChar, choice, thugCheck);
+		}
+		if (move == "lvl2bathroom") {
+			move = lvl2Bathroom(mainChar, choice, thugCheck);
+		}
+		if (move == "lvl2livingRoom") {
+			move = lvl2livingRoom(mainChar, choice, thugCheck);
+		}
+		if (move == "game over")
+		{
+			std::cout << "GAME OVER" << std::endl;
+			exit(0);
+		}
+	}
 
 	//Level 3 Loop
 	while (move != "end")

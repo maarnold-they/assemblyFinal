@@ -166,9 +166,16 @@ void enemyMove(vector <pair<string, string>> options,
 			cout << "\nhe tried to hit! wow! nothing happened to you!\n";
 		}
 		else {
-			cout << endl << enemy.name << " slugs you good and bad. YEE-OUCH BABEY!!\n";
-			cout << protag.name << " receives " << enemy.attack << " points of damage!" << endl;
-			protag.HP = protag.HP - enemy.attack;
+			if (enemy.name == "The One Who Weeps With Me") {
+				cout << "The One Who Weeps With Me cries and you almost smile...\n";
+				cout << protag.name << " receives " << enemy.attack << " points of damage...?" << endl;
+				protag.HP = protag.HP - enemy.attack;
+			}
+			else {
+				cout << endl << enemy.name << " slugs you good and bad. YEE-OUCH BABEY!!\n";
+				cout << protag.name << " receives " << enemy.attack << " points of damage!" << endl;
+				protag.HP = protag.HP - enemy.attack;
+			}
 		}
 		enemyGuard = false;
 	}
@@ -188,7 +195,12 @@ every turn the enemies condition is displayed
 void fightHeader(opponent enemy) {
 	int hpChecker = 10; //reference for dialogue of enemies status
 	if (enemy.HP > hpChecker) {
-		cout << enemy.name << " wants to fight!\nWhat will you do?\n";
+		if (enemy.name == "The One Who Weeps With Me") {
+			cout << "He doesn't want to fight but neither do you...\n";
+		}
+		else {
+			cout << enemy.name << " wants to fight!\nWhat will you do?\n";
+		}
 	}
 	else if (hpChecker / 2 < enemy.HP <= hpChecker) {
 		cout << enemy.name << " looks tired!\nWhat will you do?\n";
@@ -237,6 +249,9 @@ void fight(character& protag, opponent& enemy) {
 	int weapon = 5; //player does base 5 damage, weapons increase damage
 	weapon = getDamage(protag, weapon);
 	while (protag.HP > 0 && enemy.HP > 0) {
+		if (protag.HP > protag.maxHP) {
+			protag.HP = protag.maxHP;
+		}
 		fightHeader(enemy);
 		//prints full combat options for player
 		printOptions(options, protag, enemy, weapon);
@@ -256,12 +271,20 @@ void fight(character& protag, opponent& enemy) {
 	}
 
 	else {
-		cout << "\nthe bad guy died yay. \n\n";
+		if (enemy.name == "The One Who Weeps With Me") {
+			cout << "The One Who Weeps With Me is defeated.\n";
+			cout << "They assume the position as a placeholder for your heart.\n";
+			cout << "...\nYou Dissaprove.\n";
+		}
+		else {
+			cout << "\nthe bad guy died yay. \n\n";
+		}
 		protag.exp += enemy.exp;
 		enemy.HP = enemy.maxHP;
 		if (protag.exp >= 20) {
 			cout << "You leveled up! Max HP increased by 5.\n";
 			protag.exp = protag.exp % 20;
+			protag.maxHP += 5;
 			protag.level++;
 		}
 		system("pause");
