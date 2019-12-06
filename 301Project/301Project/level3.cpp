@@ -39,7 +39,7 @@ string lvl3Start(character& mainChar, string& notableChoice, string& choice)
 		else if (choice == "2")
 		{
 			cout << "You open the red tool box. Inside are a wrench, a hammer, a chainsaw," << endl;
-			cout << "and a cup of applesauce. You decide that wielding a chainsaw would be" << endl;
+			cout << "and a first aid kit. You decide that wielding a chainsaw would be" << endl;
 			cout << "friggin' awesome." << endl;
 
 			int epicSword = 0x0fff;
@@ -73,13 +73,41 @@ string lvl3Start(character& mainChar, string& notableChoice, string& choice)
 			}
 			if (!byeChainsaw)
 			{
-				cout << "Acquired CHAINSAW!" << endl << endl;
+				cout << "Acquired CHAINSAW!" << endl;
 				int chainsaw = 0x00ff;
 				newWeapon(chainsaw, mainChar);
-				ability ripNTear = { "Rip and Tear", 12, 5 };
+				ability ripNTear = { "Rip and Tear", 12, 5, true, false };
 				newAbility(mainChar, ripNTear);
 			}
-			cout << "After removing the chainsaw, you realize there is a key in the toolbox." << endl;
+			while (true)
+			{
+				cout << "Investigate the first aid kit?" << endl;
+				cout << "(1) Sounds handy          (2) That's for chumps who actually went to health class" << endl;
+				getline(cin, choice);
+				system("CLS");
+
+				if (choice == "1")
+				{
+					cout << "You grab the first aid kit and open it up. Turns out, it has been emptied" << endl;
+					cout << "of all surprise. Sounds helpful in a bind. Before you throw it away, you" << endl;
+					cout << "notice a sticky note on the inside with archaic runes. Apparently, they're" << endl;
+					cout << "for a healing spell of some sort." << endl;
+					ability heal = { "Heal", 20, 4, false, true };
+					newAbility(mainChar, heal);
+					break;
+				}
+				else if (choice == "2")
+				{
+					cout << "You throw the first aid kit in the trash, where it belongs. Nobody needs" << endl;
+					cout << "the ability to heal after taking damage." << endl;
+					break;
+				}
+				else
+				{
+					typo();
+				}
+			}
+			cout << "Having removed the chainsaw, you see now that there is a key in the toolbox." << endl;
 			cout << "A smile begins to stretch across your face, until you realize it isn't" << endl;
 			cout << "a car key and there's a locked door in front of you." << endl;
 			while (true)
@@ -147,7 +175,7 @@ string lvl3Breakroom(character& mainChar, string& notableChoice, string& choice)
 
 	opponent moreChillinThugs;
 	moreChillinThugs.name = "Slightly Tougher Group of Chillin' Thugs";
-	moreChillinThugs.maxHP = 100;
+	moreChillinThugs.maxHP = 120;
 	moreChillinThugs.attack = 10;
 	moreChillinThugs.money = 30;
 	moreChillinThugs.exp = 30;

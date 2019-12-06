@@ -21,6 +21,8 @@ struct ability
 	std::string name;
 	int damageBoost;
 	int MPcost;
+	bool attack;
+	bool support;
 };
 
 //struct for main character object

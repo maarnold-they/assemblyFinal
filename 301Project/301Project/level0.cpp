@@ -15,7 +15,7 @@ void typo()
 
 void newAbility(character & mainChar, ability newMove)
 {
-	cout << "Learned " << newMove.name << "!" << endl << endl;
+	cout << endl << "Learned " << newMove.name << "!" << endl << endl;
 	mainChar.abilities.push_back(newMove);
 }
 
@@ -79,14 +79,14 @@ string lvl0Start(character& mainChar, string& notableChoice, string& choice)
 				if (choice == "1")
 				{
 					cout << "You shove the sword into your pocket. What? It's not like" << endl;
-					cout << "the old man's gonna give you a sheath for free." << endl << endl;
+					cout << "the old man's gonna give you a sheath for free." << endl;
 					int twigSword = 0x000F;
 					newWeapon(twigSword, mainChar); //twig sword enters player's inventory
 
-					ability heavySlash = { "Heavy Slash", 5, 1 };
+					ability heavySlash = { "Heavy Slash", 5, 1, true, false };
 					newAbility(mainChar, heavySlash);
 
-					ability heavierSlash = { "Heavier Slash", 8, 3 };
+					ability heavierSlash = { "Heavier Slash", 8, 3, true, false };
 					newAbility(mainChar, heavierSlash);
 
 					break;

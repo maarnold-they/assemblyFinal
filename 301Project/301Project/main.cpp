@@ -88,3 +88,5 @@ int main()
 
 //TODO:
 //Finish level 3
+//Adjust abilities code in combat.cpp to add heal spell
+//

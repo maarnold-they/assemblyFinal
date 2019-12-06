@@ -111,9 +111,29 @@ void playerMove(vector <pair<string, string>> options, int& weapon, string input
 							abilityExist = true;
 							if (protag.MP - protag.abilities[ii].MPcost >= 0)
 							{
-								cout << endl << protag.name << " used " << protag.abilities[ii].name << "!" << endl;
-								cout << enemy.name << " Received " << weapon + protag.abilities[ii].damageBoost << " points of damage!" << endl;
-								enemy.HP = enemy.HP - (weapon + protag.abilities[ii].damageBoost); //deal the boosted damage to the enemy
+								if (enemyGuard && protag.abilities[ii].attack) //makes attacking abilities capable of being blocked by the enemy
+								{
+									cout << endl << protag.name << " tried using " << protag.abilities[ii].name << ", but " << enemy.name << " blocked it!" << endl;
+								}
+								else
+								{
+									if (protag.abilities[ii].attack)
+									{
+										cout << endl << protag.name << " used " << protag.abilities[ii].name << "!" << endl;
+										cout << enemy.name << " received " << weapon + protag.abilities[ii].damageBoost << " points of damage!" << endl;
+										enemy.HP -= (weapon + protag.abilities[ii].damageBoost); //deal the boosted damage to the enemy
+									}
+								}
+								if (protag.abilities[ii].support)
+								{
+									cout << endl << protag.name << " used " << protag.abilities[ii].name << "!" << endl;
+									cout << protag.name << " recovered " << protag.abilities[ii].damageBoost << " HP!" << endl;
+									protag.HP += protag.abilities[ii].damageBoost;
+									if (protag.HP > protag.maxHP)
+										protag.HP = protag.maxHP; //ensure that player cannot heal past their max HP when healing themselves
+
+								}
+
 								protag.MP -= protag.abilities[ii].MPcost; //use the required MP for the ability
 								playerGuard = false;
 								temp = false;

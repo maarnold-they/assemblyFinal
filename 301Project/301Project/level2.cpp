@@ -166,10 +166,10 @@ string lvl2livingRoom(character& mainChar, string& choice, bool& thugCheck) {
 			if (choice == "1" && swordCheck == false) {
 				cout << "you find an epic sword for more damage! thats epic dude!!\n";
 				cout << "no really!!!!\n";
-				cout << "...\ngood job!!!\n\n";
+				cout << "...\ngood job!!!\n";
 				int epicSword = 0x0fff;
 				newWeapon(epicSword, mainChar);
-				ability epicSlash = {"Epic Slash", 15, 7 };
+				ability epicSlash = {"Epic Slash", 15, 7, true, false };
 				newAbility(mainChar, epicSlash);
 				swordCheck = true;
 			}
