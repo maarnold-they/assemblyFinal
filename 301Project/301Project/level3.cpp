@@ -76,6 +76,8 @@ string lvl3Start(character& mainChar, string& notableChoice, string& choice)
 				cout << "Acquired CHAINSAW!" << endl << endl;
 				int chainsaw = 0x00ff;
 				newWeapon(chainsaw, mainChar);
+				ability ripNTear = { "Rip and Tear", 12, 5 };
+				newAbility(mainChar, ripNTear);
 			}
 			cout << "After removing the chainsaw, you realize there is a key in the toolbox." << endl;
 			cout << "A smile begins to stretch across your face, until you realize it isn't" << endl;
@@ -124,5 +126,33 @@ string lvl3Breakroom(character& mainChar, string& notableChoice, string& choice)
 	cout << "You get to the breakroom, and it is filled to the BRIM with thugs" << endl;
 	cout << "chilling by the water cooler. This is a perfect opportunity to try" << endl;
 	cout << "out your brand new weapon!" << endl;
+
+	opponent chillinThugs;
+	chillinThugs.name = "Group of Chillin' Thugs";
+	chillinThugs.maxHP = 80;
+	chillinThugs.attack = 8;
+	chillinThugs.money = 20;
+	chillinThugs.exp = 20;
+	if (!(fight(mainChar, chillinThugs)))
+		return "game over";
+
+	cout << "You defeat a group of thugs in one go, but not the entire mass of thugs." << endl;
+	cout << "Right as the next group is about to rush you, you hold out your hand and" << endl;
+	cout << "say 'just a minute'. You reach for a styrofoam cup and enjoy some cold," << endl;
+	cout << "refreshing, tasteless water." << endl;
+	cout << "HP Fully Restored!" << endl << endl;
+	mainChar.HP = mainChar.maxHP;
+	cout << "You throw your empty cup on the floor and stomp on it, and then let out" << endl;
+	cout << "a war cry. The next group of thugs draws near!" << endl;
+
+	opponent moreChillinThugs;
+	moreChillinThugs.name = "Slightly Tougher Group of Chillin' Thugs";
+	moreChillinThugs.maxHP = 100;
+	moreChillinThugs.attack = 10;
+	moreChillinThugs.money = 30;
+	moreChillinThugs.exp = 30;
+	if (!(fight(mainChar, moreChillinThugs)))
+		return "game over";
+
 	return "dummy";
 }

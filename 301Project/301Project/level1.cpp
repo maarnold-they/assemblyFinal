@@ -240,8 +240,7 @@ string lvl1Wardrobe(character& mainChar, string& notableChoice, string& choice)
 		{
 			cout << "You rummage through the pockets of one of the jackets that are" << endl;
 			cout << "hanging around and all of a sudden a rat jumps out!" << endl;
-			int cheese = 0x0001;
-			if (checkUtility(cheese, mainChar))
+			if (checkUtility(0x0001, mainChar))
 			{
 				if (mainChar.aggression < 2)
 				{
@@ -282,10 +281,12 @@ string lvl1Wardrobe(character& mainChar, string& notableChoice, string& choice)
 					opponent rat;
 					rat.HP = 20;
 					rat.name = "Hangry Rat";
+					rat.attack = 5;
 					rat.money = 10;
 					rat.exp = 10;
 
-					fight(mainChar, rat);
+					if (!(fight(mainChar, rat)))
+						return "game over";
 
 					cout << "You manage to fell the rat, and find it was holding onto a key. Nice!" << endl;
 					cout << "Acquired KEY!" << endl;
@@ -322,7 +323,9 @@ string lvl1Staircase(character& mainChar, string& notableChoice, string& choice)
 	gangster.exp = 5;
 	gangster.money = 10;
 
-	fight(mainChar, gangster);
+	if (!(fight(mainChar, gangster)))
+		return "game over";
+
 	if (notableChoice == "good")
 	{
 		cout << "After besting the gangster, you continue up the stairs to the next floor." << endl;
@@ -331,7 +334,10 @@ string lvl1Staircase(character& mainChar, string& notableChoice, string& choice)
 	else
 	{
 		cout << "Immediately after defeating the gangster, another gangster enters the fray!" << endl << endl;
-		fight(mainChar, gangster);
+
+		if (!(fight(mainChar, gangster)))
+			return "game over";
+
 		if (notableChoice == "okay")
 		{
 			cout << "You make it through the second gangster as well, and rush up the stairs" << endl;
@@ -342,7 +348,10 @@ string lvl1Staircase(character& mainChar, string& notableChoice, string& choice)
 		{
 			cout << "Yet ANOTHER gangster shows up immediately after the second one's defeat." << endl;
 			cout << "You really should have at least LOCKED the door." << endl << endl;
-			fight(mainChar, gangster);
+
+			if (!(fight(mainChar, gangster)))
+				return "game over";
+
 			cout << "You wipe your mouth and find your hand now partially painted red. Great." << endl;
 			cout << "You utilize that adrenaline of yours to get to the next floor as quickly" << endl;
 			cout << "as you can." << endl;

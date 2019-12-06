@@ -275,7 +275,9 @@ string lvl0Lair(character& mainChar, string& notableChoice, string& choice)
 	gangLeader.money = 5;
 	gangLeader.exp = 10;
 
-	fight(mainChar, gangLeader);
+	if (!(fight(mainChar, gangLeader)))
+		return "game over";
+
 	cout << "You manage to defeat the gang leader, only to realize" << endl;
 	cout << "that there's, like, 20 other gang members in this room alone." << endl;
 	cout << "You look to your left and notice an upward staircase." << endl;

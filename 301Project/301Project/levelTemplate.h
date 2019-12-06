@@ -69,7 +69,7 @@ bool checkKey(int key, character& protag);
 //unsigned long long noWeapons = 0xFFff0000FFffFFff; //removes all weapons when put through & operation.
 
 //combat.cpp functions
-void fight(character& protag, opponent& enemy);
+bool fight(character& protag, opponent& enemy);
 
 void fightHeader(opponent enemy);
 

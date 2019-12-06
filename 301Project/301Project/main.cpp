@@ -87,5 +87,4 @@ int main()
 }
 
 //TODO:
-//Add abilities for when player gets epic sword and chainsaw
 //Finish level 3

@@ -21,7 +21,7 @@ string lvl2Start(character& mainChar, string& choice, bool& thugCheck) {
 	while (true) {
 		cout << "What do you do?" << endl;
 		cout << "(1) Wait for them to come and fight one               (2) Push on and gain more distance" << endl;
-		if (checkUtility(mainChar.inventory >> 48, mainChar) && foodCheck) {
+		if (checkUtility(0x0001, mainChar) && foodCheck) {
 			cout << "(3) Eat food you found" << endl;
 		}
 		getline(cin, choice);
@@ -38,7 +38,10 @@ string lvl2Start(character& mainChar, string& choice, bool& thugCheck) {
 			thuglvl2.attack = 3;
 			cout << "The gang members shouting grows louder and you see one " << endl;
 			cout << "turn around the corner and charge you." << endl;
-			fight(mainChar, thuglvl2);
+
+			if (!(fight(mainChar, thuglvl2)))
+				return "game over";
+
 			thugCheck = false;
 			return "lvl2bathroom";
 			break;
@@ -97,7 +100,10 @@ string lvl2Bathroom(character& mainChar, string& choice, bool& thugCheck) {
 			gimbert.money = 5;
 			gimbert.exp = 10;
 			gimbert.attack = 1;
-			fight(mainChar, gimbert);
+
+			if (!(fight(mainChar, gimbert)))
+				return "game over";
+
 			system("CLS");
 
 			cout << "before you can catch your breath another thug jumps in for a fight.\n";
@@ -107,7 +113,10 @@ string lvl2Bathroom(character& mainChar, string& choice, bool& thugCheck) {
 			janszercxy.money = 5;
 			janszercxy.exp = 15;
 			janszercxy.attack = 2;
-			fight(mainChar, janszercxy);
+
+			if (!(fight(mainChar, janszercxy)))
+				return "game over";
+
 			system("CLS");
 
 			cout << "youre getting pretty tired but a deep wail rings in your skull.\n";
@@ -119,7 +128,10 @@ string lvl2Bathroom(character& mainChar, string& choice, bool& thugCheck) {
 			thugger.money = 5;
 			thugger.exp = 80;
 			thugger.attack = -15;
-			fight(mainChar, thugger);
+
+			if (!(fight(mainChar, thugger)))
+				return "game over";
+
 			system("CLS");
 			cout << "you wipe away the tears that arent there and proceed on.\n";
 			system("CLS");
@@ -154,9 +166,11 @@ string lvl2livingRoom(character& mainChar, string& choice, bool& thugCheck) {
 			if (choice == "1" && swordCheck == false) {
 				cout << "you find an epic sword for more damage! thats epic dude!!\n";
 				cout << "no really!!!!\n";
-				cout << "...\ngood job!!!\n";
+				cout << "...\ngood job!!!\n\n";
 				int epicSword = 0x0fff;
 				newWeapon(epicSword, mainChar);
+				ability epicSlash = {"Epic Slash", 15, 7 };
+				newAbility(mainChar, epicSlash);
 				swordCheck = true;
 			}
 			else if (choice == "1" && swordCheck) {

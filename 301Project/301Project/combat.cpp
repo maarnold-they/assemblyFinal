@@ -250,11 +250,13 @@ character& protag, opponent& enemy)
 /*
 main function for combat. uses while loop for each turn
 */
-void fight(character& protag, opponent& enemy) {
+bool fight(character& protag, opponent& enemy) {
+	cout << endl;
 	system("PAUSE");
 	system("CLS");
 
 	enemy.HP = enemy.maxHP;
+	bool result; //Result is used to tell whether the player won or lost the fight
 
 	bool enemyGuard = false;
 	bool playerGuard = false;
@@ -279,8 +281,9 @@ void fight(character& protag, opponent& enemy) {
 		cout << "-------------------------------------------\n";
 	}
 
-	if (protag.HP == 0) {
+	if (protag.HP <= 0) {
 		cout << "\nyou died.\n";
+		result = false;
 	}
 
 	else {
@@ -295,14 +298,16 @@ void fight(character& protag, opponent& enemy) {
 		protag.exp += enemy.exp;
 		enemy.HP = enemy.maxHP;
 		if (protag.exp >= 20) {
-			cout << "You leveled up!\nMax HP increased by 5!\nMax MP increased by 5!";
+			cout << "You leveled up!\nMax HP increased by 5!\nMax MP increased by 5!\n";
 			protag.exp = protag.exp % 20;
 			protag.maxHP += 5;
 			protag.maxMP += 5;
 			protag.MP = protag.maxMP;
 			protag.level++;
 		}
+		result = true;
 		system("pause");
 		system("CLS");
 	}
+	return result;
 }

@@ -1,6 +1,5 @@
-﻿  combat.cpp
-C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(32,20): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(89,23): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(107,26): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\combat.cpp(218,48): warning C4804:  '<=': unsafe use of type 'bool' in operation
+﻿  level2.cpp
+  level3.cpp
+  Generating Code...
+C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\301Project\level2.cpp(18,10): warning C4129:  '_': unrecognized character escape sequence
   301Project.vcxproj -> C:\Users\Wilhelm\source\repos\imthegngrbrdmn\assemblyFinal\301Project\Debug\301Project.exe
