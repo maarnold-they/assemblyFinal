@@ -1,20 +1,14 @@
 //levelTemplate.h
 //Header file containing prototypes for levels,
-//as well as the character struct
+//as well as the structs for character, opponent, and ability
+//A sort-of hub file that links it all together
 //William, Millard, Harrison
+//Dec. 7, 2019
 
 //Project Details
-//Make a text-based choose-your-own-adventure game
-//featuring turn-based combat and an inventory system
+//Make a text-based adventure game
+//featuring many choices, turn-based combat, and an inventory system
 //utilizing bitwise operations.
-//So far, there has been good progress on level 0, but the combat system
-//and inventory system still need to be implemented
-//before it can be finished. Naturally, they are what will
-//be worked on next.
-//For now, level 0 prompts the user to make some decisions,
-//and different responses occur based on what the user
-//inputs. There are checks in place for if the user types
-//an invalid response.
 
 #ifndef LEVELTEMPLATE_H
 #define LEVELTEMPLATE_H
@@ -22,19 +16,47 @@
 #include<string>
 #include<vector>
 #include<utility>
+#include<vector>
 
+//struct for abilities
+struct ability
+{
+	std::string name; //name of ability
+	int damageBoost; //how much damage does it deal (or heal)
+	int MPcost; //how much MP it costs to use
+	bool attack; //is it an attacking ability?
+	bool support; //is it a healing ability?
+};
 
+//struct for main character object
 struct character
 {
-	std::string name;
-	int aggression = 0;
+	std::string name; //Player's name
+	int aggression = 0; //Aggression level; increases when aggressive choices are chosen
 	unsigned long long inventory = 0; //needed it to be 64 bits of unsigned.
-	int HP = 100;
+	int maxHP = 40; //Maximum HP
+	int HP = maxHP; //Current HP
+	int maxMP = 5; //Maximum MP
+	int MP = maxMP; //Current MP
+	std::vector<ability> abilities; //vector of abilities, contains all abilities the player has learned
+	int exp = 0; //how many experience points the player has
+	int level = 1; //the current level of the player
+};
+
+//struct for enemy object
+struct opponent
+{
+	int maxHP; //Maximum HP
+	int HP; //Current HP
+	std::string name; //Enemy's name
+	int attack; //How much damage enemy deals
+	int money; //How much money enemy drops
+	int exp; //How many experience points enemy drops
 };
 
 /*
-	weapon, utility, and key are all integers so that you only have 
-	to know them relative to their own parts of the inventory and 
+	weapon, utility, and key are all integers so that you only have
+	to know them relative to their own parts of the inventory and
 	then it's not such a ridiculously complicated inventory.
 */
 void newWeapon(int weapon, character& protag);
@@ -51,18 +73,45 @@ bool checkKey(int key, character& protag);
 
 //unsigned long long noWeapons = 0xFFff0000FFffFFff; //removes all weapons when put through & operation.
 
+//combat.cpp functions
+bool fight(character& protag, opponent& enemy);
 
-struct enemy
-{
-	int HP;
-	std::string name;
-	//moves has a list of moves along with their damage values
-	//use rand through the list of moves to determine what the enemy does
-	std::vector<std::pair<std::string, int>> moves;
-	int money;
-	int exp;
-};
+void fightHeader(opponent enemy);
 
-void lvl0(character& mainChar);
+void printHUD(std::vector<std::pair<std::string, std::string>> options, int& weapon, std::string input,
+	character& protag, opponent& enemy);
+
+//All-around functions
+void typo(); //located at top of level0.cpp
+
+void newAbility(character& mainChar, ability newMove); //located at top of level0.cpp
+
+//level0.cpp functions
+std::string lvl0Start(character& mainChar, std::string& notableChoice, std::string& choice);
+
+std::string lvl0Hall(character& mainChar, std::string& notableChoice, std::string& choice);
+
+std::string lvl0Lair(character& mainChar, std::string& notableChoice, std::string& choice);
+
+//level1.cpp functions
+std::string lvl1Start(character& mainChar, std::string& notableChoice, std::string& choice);
+
+std::string lvl1Kitchen(character& mainChar, std::string& notableChoice, std::string& choice);
+
+std::string lvl1Wardrobe(character& mainChar, std::string& notableChoice, std::string& choice);
+
+std::string lvl1Staircase(character& mainChar, std::string& notableChoice, std::string& choice);
+
+//level2.cpp functions
+std::string lvl2Start(character& mainChar, std::string& choice, bool& thugCheck);
+
+std::string lvl2Bathroom(character& mainChar, std::string& choice, bool& thugCheck);
+
+std::string lvl2livingRoom(character& mainChar, std::string& choice, bool& thugCheck);
+
+//level3.cpp functions
+std::string lvl3Start(character& mainChar, std::string& notableChoice, std::string& choice);
+
+std::string lvl3Breakroom(character& mainChar, std::string& notableChoice, std::string& choice);
 
 #endif

@@ -8,19 +8,19 @@ using std::string;
 using std::vector;
 using std::pair;
 
-/*
+
 PUT IN HEADER FILE:
-	void fight(character& protag, character& enemy);
+	void fight(character& protag, opponent& enemy);
 
 TEST DUMMIES (just slap them into main):
 	character protag;
 	protag.name = "bobby";
 	protag.HP = 40;
-	character enemy;
+	opponent enemy;
 	enemy.name = "joey";
 	enemy.HP = 20;
 	fight(mainChar, enemy);
-*/
+
 
 void printOptions(vector <pair<string, string>> options) {
 	for (int i = 0; i < options.size(); i++) {
@@ -42,12 +42,13 @@ vector <pair<string, string>> setOptions() {
 	return setOptions;
 }
 
-/*/
+/*
 player input is compared with vector options in IF statements
 if bool guard = true, then character is guarding against players next attack
 */
+
 void playerMove(vector <pair<string, string>> options, int& weapon, string input,
-	character& protag, character& enemy, bool& enemyGuard, bool& playerGuard) {
+	character& protag, opponent& enemy, bool& enemyGuard, bool& playerGuard) {
 	bool temp = true;
 	while (temp) {
 		if (input == options[0].second) {
@@ -103,8 +104,9 @@ enemy can do two things, attack or guard
 enemy is more likely to attack
 rand is called to determine which it does
 */
+
 void enemyMove(vector <pair<string, string>> options,
-	character& protag, character& enemy, bool& enemyGuard, bool& playerGuard) {
+	character& protag, opponent& enemy, bool& enemyGuard, bool& playerGuard) {
 	int enemyMove = rand() % 3; //chooses a move between 0 and 2
 	if (enemyMove != 0) {
 		if (playerGuard) {
@@ -126,7 +128,8 @@ void enemyMove(vector <pair<string, string>> options,
 /*
 every turn the enemies condition is displayed
 */
-void fightHeader(character enemy) {
+
+void fightHeader(opponent enemy) {
 	int hpChecker = 10; //reference for dialouge of enemies status
 	if (enemy.HP > hpChecker) {
 		cout << enemy.name << " wants to fight!\nWhat will you do?\n";
@@ -144,7 +147,8 @@ void fightHeader(character enemy) {
 /*
 main function for combat. uses while loop for each turn
 */
-void fight(character& protag, character& enemy) {
+
+void fight(character& protag, opponent & enemy) {
 	bool enemyGuard=false;
 	bool playerGuard=false;
 	vector <pair<string, string>> options = setOptions();		
