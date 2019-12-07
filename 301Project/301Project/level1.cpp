@@ -1,6 +1,7 @@
 //level1.cpp
 //contains level 1's code
 //William, Millard, Harrison
+//Dec. 7, 2019
 
 #include "levelTemplate.h"
 using std::cout;
@@ -8,6 +9,7 @@ using std::cin;
 using std::endl;
 using std::string;
 
+//code for starting room of Level 1
 string lvl1Start(character& mainChar, string& notableChoice, string& choice)
 {
 	//Second visit, when you only have one key
@@ -119,6 +121,7 @@ string lvl1Start(character& mainChar, string& notableChoice, string& choice)
 	}
 }
 
+//Code for kitchen of Level 1
 string lvl1Kitchen(character& mainChar, string& notableChoice, string& choice)
 {
 	cout << "You find yourself in a kitchen." << endl;
@@ -216,6 +219,7 @@ string lvl1Kitchen(character& mainChar, string& notableChoice, string& choice)
 	}
 }
 
+//Code for wardrobe of Level 1
 string lvl1Wardrobe(character& mainChar, string& notableChoice, string& choice)
 {
 	int key2 = 0x0010;
@@ -309,6 +313,7 @@ string lvl1Wardrobe(character& mainChar, string& notableChoice, string& choice)
 	}
 }
 
+//Code for Staircase of Level 1
 string lvl1Staircase(character& mainChar, string& notableChoice, string& choice)
 {
 	cout << "The next room turns out to be a staircase! You head up a few steps, and then" << endl;
@@ -328,7 +333,9 @@ string lvl1Staircase(character& mainChar, string& notableChoice, string& choice)
 
 	if (notableChoice == "good")
 	{
-		cout << "After besting the gangster, you continue up the stairs to the next floor." << endl;
+		cout << "After besting the gangster, you continue up the stairs to the next floor." << endl << endl;
+		system("PAUSE");
+		system("CLS");
 		return "lvl2";
 	}
 	else
@@ -341,7 +348,9 @@ string lvl1Staircase(character& mainChar, string& notableChoice, string& choice)
 		if (notableChoice == "okay")
 		{
 			cout << "You make it through the second gangster as well, and rush up the stairs" << endl;
-			cout << "with renewed determination to not die!" << endl;
+			cout << "with renewed determination to not die!" << endl << endl;
+			system("PAUSE");
+			system("CLS");
 			return "lvl2";
 		}
 		else
@@ -354,7 +363,9 @@ string lvl1Staircase(character& mainChar, string& notableChoice, string& choice)
 
 			cout << "You wipe your mouth and find your hand now partially painted red. Great." << endl;
 			cout << "You utilize that adrenaline of yours to get to the next floor as quickly" << endl;
-			cout << "as you can." << endl;
+			cout << "as you can." << endl << endl;
+			system("PAUSE");
+			system("CLS");
 			return "lvl2";
 		}
 	}

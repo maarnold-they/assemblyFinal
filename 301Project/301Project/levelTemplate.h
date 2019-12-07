@@ -1,11 +1,13 @@
 //levelTemplate.h
 //Header file containing prototypes for levels,
-//as well as the character struct
+//as well as the structs for character, opponent, and ability
+//A sort-of hub file that links it all together
 //William, Millard, Harrison
+//Dec. 7, 2019
 
 //Project Details
-//Make a text-based choose-your-own-adventure game
-//featuring turn-based combat and an inventory system
+//Make a text-based adventure game
+//featuring many choices, turn-based combat, and an inventory system
 //utilizing bitwise operations.
 
 #ifndef LEVELTEMPLATE_H
@@ -16,39 +18,40 @@
 #include<utility>
 #include<vector>
 
+//struct for abilities
 struct ability
 {
-	std::string name;
-	int damageBoost;
-	int MPcost;
-	bool attack;
-	bool support;
+	std::string name; //name of ability
+	int damageBoost; //how much damage does it deal (or heal)
+	int MPcost; //how much MP it costs to use
+	bool attack; //is it an attacking ability?
+	bool support; //is it a healing ability?
 };
 
 //struct for main character object
 struct character
 {
-	std::string name;
-	int aggression = 0;
+	std::string name; //Player's name
+	int aggression = 0; //Aggression level; increases when aggressive choices are chosen
 	unsigned long long inventory = 0; //needed it to be 64 bits of unsigned.
-	int maxHP = 40;
-	int HP = maxHP;
-	int maxMP = 5;
-	int MP = maxMP;
-	std::vector<ability> abilities;
-	int exp = 0;
-	int level = 1;
+	int maxHP = 40; //Maximum HP
+	int HP = maxHP; //Current HP
+	int maxMP = 5; //Maximum MP
+	int MP = maxMP; //Current MP
+	std::vector<ability> abilities; //vector of abilities, contains all abilities the player has learned
+	int exp = 0; //how many experience points the player has
+	int level = 1; //the current level of the player
 };
 
 //struct for enemy object
 struct opponent
 {
-	int maxHP;
-	int HP;
-	std::string name;
-	int attack;
-	int money;
-	int exp;
+	int maxHP; //Maximum HP
+	int HP; //Current HP
+	std::string name; //Enemy's name
+	int attack; //How much damage enemy deals
+	int money; //How much money enemy drops
+	int exp; //How many experience points enemy drops
 };
 
 /*

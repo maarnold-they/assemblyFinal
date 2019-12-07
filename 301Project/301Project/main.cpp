@@ -1,17 +1,21 @@
 //main.cpp
 //contains the main
 //William, Millard, Harrison
+//Dec. 7, 2019
 
 #include "levelTemplate.h"
 
+//Acts as the order of events for the program
+//Each level has a loop, so player can go back to prior areas at certain points
 int main()
 {
 	//Starting stats
 	character mainChar;
 	std::string notableChoice = "0";
 	std::string choice = "";
+
 	std::string move = lvl0Start(mainChar, notableChoice, choice);
-	
+
 	//Level 0 Loop
 	while (move != "lvl1")
 	{
@@ -75,7 +79,7 @@ int main()
 		if (move == "lvl3")
 			move = lvl3Start(mainChar, notableChoice, choice);
 
-		if(move == "breakroom")
+		if (move == "breakroom")
 			move = lvl3Breakroom(mainChar, notableChoice, choice);
 
 		if (move == "game over")
@@ -84,9 +88,8 @@ int main()
 			exit(0);
 		}
 	}
-}
 
-//TODO:
-//Finish level 3
-//Adjust abilities code in combat.cpp to add heal spell
-//
+	if (move == "end")
+		std::cout << std::endl << std::endl << "THE END";
+	
+}

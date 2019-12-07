@@ -1,3 +1,8 @@
+//inventory.cpp
+//contains the code for the inventory system
+//William, Millard, Harrison
+//Dec. 7, 2019
+
 #include "levelTemplate.h"
 unsigned long long noWeapons = 0xFFff0000FFffFFff;
 void newWeapon(int weapon, character& protag)

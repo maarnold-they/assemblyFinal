@@ -1,6 +1,7 @@
 //level0.cpp
 //contains level 0's code
 //William, Millard, Harrison
+//Dec. 7, 2019
 
 #include "levelTemplate.h"
 using std::cout;
@@ -8,17 +9,20 @@ using std::cin;
 using std::endl;
 using std::string;
 
+//Easy to implement function for when user types something that isn't a viable option 
 void typo()
 {
 	cout << "Hey, are you sure you meant to type that? I don't think you did." << endl;
 }
 
+//Function for adding a new ability to the player's repertoire
 void newAbility(character & mainChar, ability newMove)
 {
 	cout << endl << "Learned " << newMove.name << "!" << endl << endl;
 	mainChar.abilities.push_back(newMove);
 }
 
+//Code for starting room of Level 0
 string lvl0Start(character& mainChar, string& notableChoice, string& choice)
 {
 	cout << "It's not like I forgot or anything, but, uhh..." << endl;
@@ -29,7 +33,8 @@ string lvl0Start(character& mainChar, string& notableChoice, string& choice)
 	cout << "Told ya I didn't forget!" << endl << endl;
 	cout << "Anyway, you wake up in a straaaaaange place." << endl;
 	cout << "You notice an old man in the fetal position rocking back and forth in the corner." << endl;
-	while (true)
+
+	while (true) //Choices all take place in while loops so that user typos can be accounted for
 	{
 		cout << "You have a couple options here." << endl;
 		cout << "(1) Talk to him                (2) Be anti-social" << endl;
@@ -84,10 +89,10 @@ string lvl0Start(character& mainChar, string& notableChoice, string& choice)
 					newWeapon(twigSword, mainChar); //twig sword enters player's inventory
 
 					ability heavySlash = { "Heavy Slash", 5, 1, true, false };
-					newAbility(mainChar, heavySlash);
+					newAbility(mainChar, heavySlash); //player learns Heavy Slash ability
 
 					ability heavierSlash = { "Heavier Slash", 8, 3, true, false };
-					newAbility(mainChar, heavierSlash);
+					newAbility(mainChar, heavierSlash); //player learns Heavier Slash ability
 
 					break;
 				}
@@ -107,7 +112,7 @@ string lvl0Start(character& mainChar, string& notableChoice, string& choice)
 		else if (choice == "2")
 		{
 			cout << "You look at the old man in disgust and then walk away." << endl << endl;
-			mainChar.aggression++;
+			mainChar.aggression++; //boosting aggression leads to potentially different events in playthrough
 			return "hall";
 		}
 		else
@@ -140,6 +145,7 @@ string lvl0Start(character& mainChar, string& notableChoice, string& choice)
 	}
 }
 
+//Code for hallway of Level 0
 string lvl0Hall(character& mainChar, string& notableChoice, string& choice)
 {
 	bool first = true;
@@ -258,6 +264,7 @@ string lvl0Hall(character& mainChar, string& notableChoice, string& choice)
 	return "Gangster's Lair";
 }
 
+//Code for gangsters' lair of Level 0
 string lvl0Lair(character& mainChar, string& notableChoice, string& choice)
 {
 	cout << "After pushing and shoving dozens upon dozens of people," << endl;
@@ -268,6 +275,7 @@ string lvl0Lair(character& mainChar, string& notableChoice, string& choice)
 	cout << "The gang leader pulls out a pristine dagger, and you" << endl;
 	cout << "prepare for battle!" << endl << endl;
 
+	//set up a new enemy, with all their stats, for battle
 	opponent gangLeader;
 	gangLeader.maxHP = 20;
 	gangLeader.name = "Gang Leader";
@@ -275,6 +283,7 @@ string lvl0Lair(character& mainChar, string& notableChoice, string& choice)
 	gangLeader.money = 5;
 	gangLeader.exp = 10;
 
+	//Fight the enemy; If player wins, they continue on. If they lose, game over.
 	if (!(fight(mainChar, gangLeader)))
 		return "game over";
 
@@ -301,6 +310,8 @@ string lvl0Lair(character& mainChar, string& notableChoice, string& choice)
 		{
 			cout << "You dash for those stairs like your life depends on it. Because it does." << endl;
 			cout << "You make it successfully, and head up to the next floor." << endl << endl;
+			system("PAUSE");
+			system("CLS");
 			return "lvl1";
 		}
 		else

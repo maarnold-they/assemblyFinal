@@ -1,6 +1,7 @@
 //level2.cpp
 //contains level 2's code
 //William, Millard, Harrison
+//Dec. 7, 2019
 
 #include "levelTemplate.h"
 using std::cout;
@@ -12,6 +13,8 @@ using std::string;
 cout << "" << endl;	
 
 */
+
+//Code for starting room of Level 2
 string lvl2Start(character& mainChar, string& choice, bool& thugCheck) {
 	cout << "You get a strong feeling that a different person is writing this\n";
 	cout << "and that the overall tone of this level doesnt fit with the other two\n";
@@ -21,7 +24,7 @@ string lvl2Start(character& mainChar, string& choice, bool& thugCheck) {
 	while (true) {
 		cout << "What do you do?" << endl;
 		cout << "(1) Wait for them to come and fight one               (2) Push on and gain more distance" << endl;
-		if (checkUtility(0x0001, mainChar) && foodCheck) {
+		if (checkUtility(0x0001, mainChar) && foodCheck) { //checks if player has the cheese from level 0
 			cout << "(3) Eat food you found" << endl;
 		}
 		getline(cin, choice);
@@ -65,6 +68,7 @@ string lvl2Start(character& mainChar, string& choice, bool& thugCheck) {
 	return "lvl2Bathroom";
 }
 
+//Code for bathroom of Level 2
 string lvl2Bathroom(character& mainChar, string& choice, bool& thugCheck) {
 	cout << "you hear more thuggos comin and you hide in the bathroom which is right by the entrance.\n";
 	int wait = 1;
@@ -127,7 +131,7 @@ string lvl2Bathroom(character& mainChar, string& choice, bool& thugCheck) {
 			thugger.name = "The One Who Weeps With Me";
 			thugger.money = 5;
 			thugger.exp = 80;
-			thugger.attack = -15;
+			thugger.attack = -15; //only enemy who heals the player, can heal past max HP
 
 			if (!(fight(mainChar, thugger)))
 				return "game over";
@@ -154,6 +158,8 @@ string lvl2Bathroom(character& mainChar, string& choice, bool& thugCheck) {
 	}
 	return "lvl2livingRoom";
 }
+
+//Code for living room of Level 2
 string lvl2livingRoom(character& mainChar, string& choice, bool& thugCheck) {
 	if (thugCheck) {
 		bool swordCheck = false; //checks if player found weapon for choice 1
@@ -187,10 +193,12 @@ string lvl2livingRoom(character& mainChar, string& choice, bool& thugCheck) {
 	else if (!thugCheck) {
 		cout << "you run into the dining room and a thug chases you while the other run away idk...\n";
 		cout << "you prepare for a fight but the burly flexxer grabs you and throws you to level3.cpp\n";
-		cout << endl;
+		cout << endl << endl;
 	}
 	else {
 		thugCheck = true;
 	}
+	system("PAUSE");
+	system("CLS");
 	return "lvl3";
 }
