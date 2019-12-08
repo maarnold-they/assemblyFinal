@@ -1,6 +1,7 @@
 //level1.cpp
 //contains level 1's code
 //William, Millard, Harrison
+//Dec. 7, 2019
 
 #include "levelTemplate.h"
 using std::cout;
@@ -8,7 +9,8 @@ using std::cin;
 using std::endl;
 using std::string;
 
-string lvl1Start(character& mainChar, string & notableChoice, string& choice)
+//code for starting room of Level 1
+string lvl1Start(character& mainChar, string& notableChoice, string& choice)
 {
 	//Second visit, when you only have one key
 	int key = 0x0001;
@@ -40,7 +42,7 @@ string lvl1Start(character& mainChar, string & notableChoice, string& choice)
 		cout << "but you've made it through now. You enter the next room." << endl << endl;
 		return "staircase";
 	}
-	
+
 	//First Visit, when you have no keys
 	cout << "You reach the top of the stairs and find a door." << endl;
 	cout << "You open the door and close it behind you. You realize" << endl;
@@ -52,7 +54,7 @@ string lvl1Start(character& mainChar, string & notableChoice, string& choice)
 		cout << "(3) Keep door unlocked                    (4) Throw chair in front of door" << endl;
 		getline(cin, choice);
 		system("CLS");
-		
+
 		if (choice == "1")
 		{
 			cout << "You throw the bookcase in front of the door." << endl;
@@ -119,6 +121,7 @@ string lvl1Start(character& mainChar, string & notableChoice, string& choice)
 	}
 }
 
+//Code for kitchen of Level 1
 string lvl1Kitchen(character& mainChar, string& notableChoice, string& choice)
 {
 	cout << "You find yourself in a kitchen." << endl;
@@ -216,6 +219,7 @@ string lvl1Kitchen(character& mainChar, string& notableChoice, string& choice)
 	}
 }
 
+//Code for wardrobe of Level 1
 string lvl1Wardrobe(character& mainChar, string& notableChoice, string& choice)
 {
 	int key2 = 0x0010;
@@ -240,8 +244,7 @@ string lvl1Wardrobe(character& mainChar, string& notableChoice, string& choice)
 		{
 			cout << "You rummage through the pockets of one of the jackets that are" << endl;
 			cout << "hanging around and all of a sudden a rat jumps out!" << endl;
-			int cheese = 0x0001;
-			if (checkUtility(cheese, mainChar))
+			if (checkUtility(0x0001, mainChar))
 			{
 				if (mainChar.aggression < 2)
 				{
@@ -282,10 +285,12 @@ string lvl1Wardrobe(character& mainChar, string& notableChoice, string& choice)
 					opponent rat;
 					rat.HP = 20;
 					rat.name = "Hangry Rat";
+					rat.attack = 5;
 					rat.money = 10;
 					rat.exp = 10;
 
-					fight(mainChar, rat);
+					if (!(fight(mainChar, rat)))
+						return "game over";
 
 					cout << "You manage to fell the rat, and find it was holding onto a key. Nice!" << endl;
 					cout << "Acquired KEY!" << endl;
@@ -308,6 +313,7 @@ string lvl1Wardrobe(character& mainChar, string& notableChoice, string& choice)
 	}
 }
 
+//Code for Staircase of Level 1
 string lvl1Staircase(character& mainChar, string& notableChoice, string& choice)
 {
 	cout << "The next room turns out to be a staircase! You head up a few steps, and then" << endl;
@@ -322,30 +328,44 @@ string lvl1Staircase(character& mainChar, string& notableChoice, string& choice)
 	gangster.exp = 5;
 	gangster.money = 10;
 
-	fight(mainChar, gangster);
+	if (!(fight(mainChar, gangster)))
+		return "game over";
+
 	if (notableChoice == "good")
 	{
-		cout << "After besting the gangster, you continue up the stairs to the next floor." << endl;
+		cout << "After besting the gangster, you continue up the stairs to the next floor." << endl << endl;
+		system("PAUSE");
+		system("CLS");
 		return "lvl2";
 	}
 	else
 	{
 		cout << "Immediately after defeating the gangster, another gangster enters the fray!" << endl << endl;
-		fight(mainChar, gangster);
+
+		if (!(fight(mainChar, gangster)))
+			return "game over";
+
 		if (notableChoice == "okay")
 		{
 			cout << "You make it through the second gangster as well, and rush up the stairs" << endl;
-			cout << "with renewed determination to not die!" << endl;
+			cout << "with renewed determination to not die!" << endl << endl;
+			system("PAUSE");
+			system("CLS");
 			return "lvl2";
 		}
 		else
 		{
 			cout << "Yet ANOTHER gangster shows up immediately after the second one's defeat." << endl;
 			cout << "You really should have at least LOCKED the door." << endl << endl;
-			fight(mainChar, gangster);
+
+			if (!(fight(mainChar, gangster)))
+				return "game over";
+
 			cout << "You wipe your mouth and find your hand now partially painted red. Great." << endl;
 			cout << "You utilize that adrenaline of yours to get to the next floor as quickly" << endl;
-			cout << "as you can." << endl;
+			cout << "as you can." << endl << endl;
+			system("PAUSE");
+			system("CLS");
 			return "lvl2";
 		}
 	}

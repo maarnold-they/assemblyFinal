@@ -1,6 +1,2 @@
-﻿  combat.cpp
-C:\Users\A. Harrison Owen\source\repos\assemblyFinal\301Project\301Project\combat.cpp(31,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\A. Harrison Owen\source\repos\assemblyFinal\301Project\301Project\combat.cpp(87,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\A. Harrison Owen\source\repos\assemblyFinal\301Project\301Project\combat.cpp(105,26): warning C4018: '<': signed/unsigned mismatch
-C:\Users\A. Harrison Owen\source\repos\assemblyFinal\301Project\301Project\combat.cpp(193,48): warning C4804: '<=': unsafe use of type 'bool' in operation
-  301Project.vcxproj -> C:\Users\A. Harrison Owen\Source\Repos\assemblyFinal\301Project\Debug\301Project.exe
+﻿  inventory.cpp
+  301Project.vcxproj -> C:\Users\milla\Source\Repos\imthegngrbrdmn\assemblyFinal\301Project\Debug\301Project.exe

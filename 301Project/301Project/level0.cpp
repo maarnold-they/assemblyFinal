@@ -1,6 +1,7 @@
 //level0.cpp
 //contains level 0's code
 //William, Millard, Harrison
+//Dec. 7, 2019
 
 #include "levelTemplate.h"
 using std::cout;
@@ -8,48 +9,58 @@ using std::cin;
 using std::endl;
 using std::string;
 
+//Easy to implement function for when user types something that isn't a viable option 
 void typo()
 {
-	std::cout << "Hey, are you sure you meant to type that? I don't think you did." << std::endl;
+	cout << "Hey, are you sure you meant to type that? I don't think you did." << endl;
 }
 
-string lvl0Start(character& mainChar, string & notableChoice, string & choice)
+//Function for adding a new ability to the player's repertoire
+void newAbility(character & mainChar, ability newMove)
 {
-		cout << "It's not like I forgot or anything, but, uhh..." << endl;
-		cout << "What was your name again?" << endl;
-		getline(cin, mainChar.name);
-		system("CLS");
-		cout << "Yeah, that's right, your name is " << mainChar.name << "!" << endl;
-		cout << "Told ya I didn't forget!" << endl << endl;
-		cout << "Anyway, you wake up in a straaaaaange place." << endl;
-		cout << "You notice an old man in the fetal position rocking back and forth in the corner." << endl;
-		while (true)
-		{
-			cout << "You have a couple options here." << endl;
-			cout << "(1) Talk to him                (2) Be anti-social" << endl;
-			getline(cin, choice);
-			system("CLS");
+	cout << endl << "Learned " << newMove.name << "!" << endl << endl;
+	mainChar.abilities.push_back(newMove);
+}
 
-			if (choice == "1")
-			{
-				cout << "The old man sounds like he's had a couple hundred too" << endl;
-				cout << "many cigarettes in the last hour. You largely can't understand what he's saying." << endl << endl;
-				break;
-			}
-			else if (choice == "2")
-			{
-				cout << "Your sheer lack of enthusiasm for talking to random people in strange places" << endl;
-				cout << "is completely understandable, but it doesn't exactly move the plot forward," << endl;
-				cout << "now does it?" << endl << endl;
-			}
-			else
-			{
-				typo();
-			}
+//Code for starting room of Level 0
+string lvl0Start(character& mainChar, string& notableChoice, string& choice)
+{
+	cout << "It's not like I forgot or anything, but, uhh..." << endl;
+	cout << "What was your name again?" << endl;
+	getline(cin, mainChar.name);
+	system("CLS");
+	cout << "Yeah, that's right, your name is " << mainChar.name << "!" << endl;
+	cout << "Told ya I didn't forget!" << endl << endl;
+	cout << "Anyway, you wake up in a straaaaaange place." << endl;
+	cout << "You notice an old man in the fetal position rocking back and forth in the corner." << endl;
+
+	while (true) //Choices all take place in while loops so that user typos can be accounted for
+	{
+		cout << "You have a couple options here." << endl;
+		cout << "(1) Talk to him                (2) Be anti-social" << endl;
+		getline(cin, choice);
+		system("CLS");
+
+		if (choice == "1")
+		{
+			cout << "The old man sounds like he's had a couple hundred too" << endl;
+			cout << "many cigarettes in the last hour. You largely can't understand what he's saying." << endl << endl;
+			break;
 		}
-		cout << "In the middle of the old man's incomprehensible babbling, you see a glimmer" << endl;
-		cout << "of light in his eyes, reminding you of the light in a child's eyes when" << endl;
-		cout << "they're desperate for you to listen. Try to hear him out?" << endl;
+		else if (choice == "2")
+		{
+			cout << "Your sheer lack of enthusiasm for talking to random people in strange places" << endl;
+			cout << "is completely understandable, but it doesn't exactly move the plot forward," << endl;
+			cout << "now does it?" << endl << endl;
+		}
+		else
+		{
+			typo();
+		}
+	}
+	cout << "In the middle of the old man's incomprehensible babbling, you see a glimmer" << endl;
+	cout << "of light in his eyes, reminding you of the light in a child's eyes when" << endl;
+	cout << "they're desperate for you to listen. Try to hear him out?" << endl;
 	while (true)
 	{
 		cout << "(1) Fine, I'll try to understand               (2) I hate children" << endl;
@@ -73,13 +84,16 @@ string lvl0Start(character& mainChar, string & notableChoice, string & choice)
 				if (choice == "1")
 				{
 					cout << "You shove the sword into your pocket. What? It's not like" << endl;
-					cout << "the old man's gonna give you a sheath for free." << endl << endl;
+					cout << "the old man's gonna give you a sheath for free." << endl;
 					int twigSword = 0x000F;
 					newWeapon(twigSword, mainChar); //twig sword enters player's inventory
-					cout << endl << "Learned Ability 'Heavy Slash'!" << endl;
-					mainChar.abilities.push_back(std::make_pair("Heavy Slash", 5));
-					cout << endl << "Learned Ability 'Heavier Slash'!" << endl;
-					mainChar.abilities.push_back(std::make_pair("Heavier Slash", 8));
+
+					ability heavySlash = { "Heavy Slash", 5, 1, true, false };
+					newAbility(mainChar, heavySlash); //player learns Heavy Slash ability
+
+					ability heavierSlash = { "Heavier Slash", 8, 3, true, false };
+					newAbility(mainChar, heavierSlash); //player learns Heavier Slash ability
+
 					break;
 				}
 				else if (choice == "2")
@@ -98,7 +112,7 @@ string lvl0Start(character& mainChar, string & notableChoice, string & choice)
 		else if (choice == "2")
 		{
 			cout << "You look at the old man in disgust and then walk away." << endl << endl;
-			mainChar.aggression++;
+			mainChar.aggression++; //boosting aggression leads to potentially different events in playthrough
 			return "hall";
 		}
 		else
@@ -131,7 +145,8 @@ string lvl0Start(character& mainChar, string & notableChoice, string & choice)
 	}
 }
 
-string lvl0Hall(character & mainChar, string & notableChoice, string& choice)
+//Code for hallway of Level 0
+string lvl0Hall(character& mainChar, string& notableChoice, string& choice)
 {
 	bool first = true;
 	cout << "You hear the old man mumble 'good luck' before shutting" << endl;
@@ -175,7 +190,7 @@ string lvl0Hall(character & mainChar, string & notableChoice, string& choice)
 						cout << "You grab that cheese so fast the rat can't even react." << endl;
 						cout << "The rat then looks at you sadly and you hiss at him, scaring him off." << endl;
 						cout << "You acquire cheese!" << endl << endl;
-						
+
 						newUtility(cheese, mainChar); //add cheese into player's inventory
 						mainChar.aggression++; //increase player's aggression level by 1
 						break;
@@ -249,7 +264,8 @@ string lvl0Hall(character & mainChar, string & notableChoice, string& choice)
 	return "Gangster's Lair";
 }
 
-string lvl0Lair(character& mainChar, string & notableChoice, string& choice)
+//Code for gangsters' lair of Level 0
+string lvl0Lair(character& mainChar, string& notableChoice, string& choice)
 {
 	cout << "After pushing and shoving dozens upon dozens of people," << endl;
 	cout << "you make your way into the gangsters' lair." << endl;
@@ -259,6 +275,7 @@ string lvl0Lair(character& mainChar, string & notableChoice, string& choice)
 	cout << "The gang leader pulls out a pristine dagger, and you" << endl;
 	cout << "prepare for battle!" << endl << endl;
 
+	//set up a new enemy, with all their stats, for battle
 	opponent gangLeader;
 	gangLeader.maxHP = 20;
 	gangLeader.name = "Gang Leader";
@@ -266,7 +283,10 @@ string lvl0Lair(character& mainChar, string & notableChoice, string& choice)
 	gangLeader.money = 5;
 	gangLeader.exp = 10;
 
-	fight(mainChar, gangLeader);
+	//Fight the enemy; If player wins, they continue on. If they lose, game over.
+	if (!(fight(mainChar, gangLeader)))
+		return "game over";
+
 	cout << "You manage to defeat the gang leader, only to realize" << endl;
 	cout << "that there's, like, 20 other gang members in this room alone." << endl;
 	cout << "You look to your left and notice an upward staircase." << endl;
@@ -290,6 +310,8 @@ string lvl0Lair(character& mainChar, string & notableChoice, string& choice)
 		{
 			cout << "You dash for those stairs like your life depends on it. Because it does." << endl;
 			cout << "You make it successfully, and head up to the next floor." << endl << endl;
+			system("PAUSE");
+			system("CLS");
 			return "lvl1";
 		}
 		else
