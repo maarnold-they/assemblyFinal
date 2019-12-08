@@ -30,13 +30,13 @@ Takes input of the item & character.
 */
 bool checkWeapon(int weapon, character& protag)
 {
-	return weapon == (int)((protag.inventory >> 32) & weapon);
+	return weapon == (int)((protag.inventory >> 32) & 0xFFff);
 }
 bool checkUtility(int utility, character& protag)
 {
-	return utility == (int)((protag.inventory >> 48)&utility);
+	return utility == (int)(protag.inventory >> 48);
 }
 bool checkKey(int key, character& protag)
 {
-	return key == (int)(protag.inventory & key);
+	return key == (int)(protag.inventory & 0xFFffFFff);
 }
