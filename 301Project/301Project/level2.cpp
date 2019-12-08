@@ -8,17 +8,20 @@ using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
-/* 
 
-cout << "" << endl;	
 
+/*
+Code for starting room of Level 2
+character mainchar is player
+string choice is getline input from player
+bool thugCheck keeps track of if thugs are supposed to be following the character
+thugheck = true; thugs are not following player
+thugheck = false; thugs are following player
 */
-
-//Code for starting room of Level 2
 string lvl2Start(character& mainChar, string& choice, bool& thugCheck) {
-	cout << "You get a strong feeling that a different person is writing this\n";
+	cout << "\nYou get a strong feeling that a different person is writing this\n";
 	cout << "and that the overall tone of this level doesnt fit with the other two\n";
-	cout << "levels...¯\_(v.v)_/¯";
+	cout << "levels...¯\\_(v.v)_/¯";
 	cout << "\noh yeah, you also hear thugs closing in behind you...\n";
 	bool foodCheck = true; //player can eat food to refill health just once.
 	while (true) {
@@ -40,7 +43,7 @@ string lvl2Start(character& mainChar, string& choice, bool& thugCheck) {
 			thuglvl2.exp = 10;
 			thuglvl2.attack = 3;
 			cout << "The gang members shouting grows louder and you see one " << endl;
-			cout << "turn around the corner and charge you." << endl;
+			cout << "turn around the corner and charge you.\n" << endl;
 
 			if (!(fight(mainChar, thuglvl2)))
 				return "game over";
@@ -56,7 +59,7 @@ string lvl2Start(character& mainChar, string& choice, bool& thugCheck) {
 
 		}
 		else if (choice == "3") {
-			cout << "The food fills you up and you feel refreshed! HP is restored.";
+			cout << "\nThe food fills you up and you feel refreshed! HP is restored.\n";
 			mainChar.HP = mainChar.maxHP;
 			mainChar.inventory >> 48 && 0xfff0;
 			foodCheck = false;
@@ -68,10 +71,17 @@ string lvl2Start(character& mainChar, string& choice, bool& thugCheck) {
 	return "lvl2Bathroom";
 }
 
-//Code for bathroom of Level 2
+/*
+Code for bathroom of Level 2
+character mainchar is player
+string choice is getline input from player
+bool thugCheck keeps track of if thugs are supposed to be following the character
+thugheck = true; thugs are not following player
+thugheck = false; thugs are following player
+*/
 string lvl2Bathroom(character& mainChar, string& choice, bool& thugCheck) {
 	cout << "you hear more thuggos comin and you hide in the bathroom which is right by the entrance.\n";
-	int wait = 1;
+	int wait = 1; //measures how long you need to wait until thugs leave the room
 	while (true) {
 		cout << "what do you do?\n";
 		cout << "(1) look for something useful              ";
@@ -125,13 +135,13 @@ string lvl2Bathroom(character& mainChar, string& choice, bool& thugCheck) {
 
 			cout << "youre getting pretty tired but a deep wail rings in your skull.\n";
 			cout << "youve never heard this noise before. but youve always known it was haunting your soul.\n";
-			cout << "The Who Weeps With Me shambles miserably across the floor at you in a way that aches your heart.\n";
+			cout << "The One Who Weeps With Me shambles miserably across the floor at you in a way that aches your heart.\n";
 			opponent thugger;
 			thugger.maxHP = 20;
 			thugger.name = "The One Who Weeps With Me";
 			thugger.money = 5;
 			thugger.exp = 80;
-			thugger.attack = -15; //only enemy who heals the player, can heal past max HP
+			thugger.attack = -15; //only enemy who heals the player, can't heal past max HP
 
 			if (!(fight(mainChar, thugger)))
 				return "game over";
@@ -159,7 +169,14 @@ string lvl2Bathroom(character& mainChar, string& choice, bool& thugCheck) {
 	return "lvl2livingRoom";
 }
 
-//Code for living room of Level 2
+/*
+Code for living room of Level 2
+character mainchar is player
+string choice is getline input from player
+bool thugCheck keeps track of if thugs are supposed to be following the character
+thugheck = true; thugs are not following player
+thugheck = false; thugs are following player
+*/
 string lvl2livingRoom(character& mainChar, string& choice, bool& thugCheck) {
 	if (thugCheck) {
 		bool swordCheck = false; //checks if player found weapon for choice 1
@@ -192,7 +209,7 @@ string lvl2livingRoom(character& mainChar, string& choice, bool& thugCheck) {
 	}
 	else if (!thugCheck) {
 		cout << "you run into the dining room and a thug chases you while the other run away idk...\n";
-		cout << "you prepare for a fight but the burly flexxer grabs you and throws you to level3.cpp\n";
+		cout << "you prepare for a fight but the burly flexxer grabs you and throws you to level3.cpp\n\n";
 		cout << endl << endl;
 	}
 	else {
