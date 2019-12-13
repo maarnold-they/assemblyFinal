@@ -13,20 +13,6 @@ using std::string;
 using std::vector;
 using std::pair;
 
-/*
-PUT IN HEADER FILE:
-	void fight(character& protag, opponent& enemy);
-
-TEST DUMMIES (just slap them into main):
-	character protag;
-	protag.name = "bobby";
-	protag.HP = 40;
-	opponent enemy;
-	enemy.name = "joey";
-	enemy.HP = 20;
-	fight(mainChar, enemy);
-*/
-
 //One of the HUD printing functions; prints player stats and enemy stats as well as player options
 void printOptions(vector <pair<string, string>> options, character & protag, opponent & enemy, int & weapon) {
 	cout << "\nPLAYER: " << protag.name << endl;
